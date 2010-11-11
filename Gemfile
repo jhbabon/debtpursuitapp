@@ -6,9 +6,17 @@ gem 'rails', '3.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'rails3-generators'
 gem 'jquery-rails'
-gem 'factory_girl_rails', :group => :test
+gem 'devise', '~> 1.1'
+
+group :development do
+  gem 'rails3-generators'
+end
+
+group :test do
+  gem 'factory_girl'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

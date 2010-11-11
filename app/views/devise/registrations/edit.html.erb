@@ -1,0 +1,23 @@
+<h2>Edit User Settings</h2>
+<%= form_for(resource,
+             :as => resource_name,
+             :builder => CustomFormBuilder,
+             :url => registration_path(resource_name),
+             :html => { :method => :put,
+                        :class  => %(form box)}) do |f| %>
+  <%= f.form_head "Edit #{resource_name.to_s.humanize}" %>
+  <section class="form_body">
+    <%= f.form_errors devise_error_messages! %>
+    <%= f.text_field :email, :required => true %>
+    <%= f.text_field :first_name, :required => true %>
+    <%= f.text_field :last_name, :required => true %>
+    <%= f.password_field :password, :label => "New password", :required => true %>
+    <%= f.password_field :password_confirmation, :label => "New password confirmation", :required => true %>
+    <%= f.submit "Update", :cancel => link_to("Cancel", home_index_path) %>
+  </section>
+  <%= f.instructions  raw("<p>The fields with a <span class=\"required\">*</span> are required.</p><p>Left the password field blank if You don't want to change it.</p>") %>
+<% end %>
+<h3>Cancel account</h3>
+<p>
+  Unhappy? <%= link_to"Cancel account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+</p>

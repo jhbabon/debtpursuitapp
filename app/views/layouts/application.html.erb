@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DebtPursuit</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>DebtPursuit</title>
+    <%= stylesheet_link_tag 'reset', 'main' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
 
-<%= yield %>
+    <div class="user_info container">
+      <nav class="nav hor">
+        <ul>
+          <li>
+            <%= current_user.full_name %>
+          </li>
+          <li>
+            <%= link_to "Settings", edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, :class => "logout" %>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-</body>
+    <header class="header container">
+      <div class="logo">
+        <h1>Debt<span class="light">Pursuit</span></h1>
+      </div>
+      <nav class="nav buttons">
+        <span class="button first">
+          <%= link_to "Home", home_index_path, :class => "selected" %>
+        </span>
+        <span class="button"><a href="#">Debts</a></span>
+        <span class="button last"><a href="#">Contacts</a></span>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section class="layout">
+        <section class="content">
+          <%= yield %>
+        </section>
+        <aside class="sidebar">
+          <%= yield :aside %>
+        </aside>
+      </section>
+    </div>
+
+    <footer class="footer container">
+      <nav class="nav hor">
+        <ul>
+          <li><a href="#">License</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="version_info">
+        <p><%= "Code name: #{DebtPursuit::Version::CODE_NAME}. Version: #{DebtPursuit::Version::NUMBER}" %></p>
+      </div>
+    </footer>
+
+    <%= javascript_include_tag :defaults %>
+  </body>
 </html>

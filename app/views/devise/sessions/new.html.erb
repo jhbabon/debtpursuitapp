@@ -1,0 +1,18 @@
+<%= form_for(resource,
+             :as   => resource_name,
+             :builder => CustomFormBuilder,
+             :url  => session_path(resource_name),
+             :html => { :class => %(form box) } ) do |f| %>
+  <%= f.form_head "Login" %>
+  <section class="form_body">
+    <%= f.form_errors flash[:alert] %>
+    <%= f.text_field :email %>
+    <%= f.password_field :password %>
+
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %>
+    <% end -%>
+    <%= f.submit "Login" %>
+  </section>
+  <%= f.instructions render(:partial => "devise/shared/links") %>
+<% end %>

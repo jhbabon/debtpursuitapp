@@ -1,0 +1,191 @@
+<section class="part">
+  <header class="head">
+    <h1>Latest debts:</h1>
+  </header>
+  <section>
+    <div class="debt short">
+      <div class="date box field">
+        <p>11/10/2010</p>
+      </div>
+      <div class="type field">
+        <a href="#" class="new" alt="New debt" title="New debt">New</a>
+      </div>
+      <div class="info field">
+        <p>You owe <span class="amount minus">20€</span> to <a href="#">Victor Alonso Alonso</a>.</p>
+      </div>
+      <div class="controls nav hor field">
+        <ul>
+          <li><a href="#">Clear</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="debt short">
+      <div class="date box field">
+        <p>11/09/2010</p>
+      </div>
+      <div class="type field">
+        <a href="#" class="calculated" alt="Calculated debt" title="Calculated debt">Calculated</a>
+      </div>
+      <div class="info field">
+        <p><a href=#">David González Nieto</a> owes <span class="amount
+            plus">3.45€</span> to You.</p>
+      </div>
+      <div class="controls nav hor field">
+        <ul>
+          <li><a href="#">Clear</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="debt short">
+      <div class="date box field">
+        <p>11/10/2010</p>
+      </div>
+      <div class="type field">
+        <a href="#" class="new" alt="New debt" title="New debt">New</a>
+      </div>
+      <div class="info field">
+        <p>You owe <span class="amount minus">20€</span> to <a href="#">Victor Alonso Alonso</a>.</p>
+      </div>
+      <div class="controls nav hor field">
+        <ul>
+          <li><a href="#">Clear</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="debt short">
+      <div class="date box field">
+        <p>11/09/2010</p>
+      </div>
+      <div class="type field">
+        <a href="#" class="calculated" alt="Calculated debt" title="Calculated debt">Calculated</a>
+      </div>
+      <div class="info field">
+        <p><a href=#">David González Nieto</a> owes <span class="amount
+            plus">3.45€</span> to You.</p>
+      </div>
+      <div class="controls nav hor field">
+        <ul>
+          <li><a href="#">Clear</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="debt short">
+      <div class="date box field">
+        <p>11/10/2010</p>
+      </div>
+      <div class="type field">
+        <a href="#" class="new" alt="New debt" title="New debt">New</a>
+      </div>
+      <div class="info field">
+        <p>You owe <span class="amount minus">20€</span> to <a href="#">Victor Alonso Alonso</a>.</p>
+      </div>
+      <div class="controls nav hor field">
+        <ul>
+          <li><a href="#">Clear</a></li>
+          <li><a href="#">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <footer class="nav buttons inline">
+    <span class="button first last">
+      <a href="#">See all debts</a>
+    </span>
+  </footer>
+</section>
+
+<section class="part">
+  <header class="head">
+    <h1>Create a new debt:</h1>
+  </header>
+  <section>
+    <form class="form box">
+      <header class="form_head">
+        <h2>Who owes money?</h2>
+      </header>
+      <section class="form_body">
+        <fieldset class="fieldset">
+          <div class="label">
+            <label for="debtor"><span class="required">*</span> Debtor</label>
+          </div>
+          <div class="input">
+            <select name="debtor">
+              <option value="1">You (Juan Hernández Babón)</option>
+              <option value="2">Victor Alonso Alonso</option>
+              <option value="3">David González Nieto</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <div class="label">
+            <label for="amount"><span class="required">*</span> Owes</label>
+          </div>
+          <div class="input">
+            <input type="text" name="amount" class="text" /> €
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <div class="label">
+            <label for="owner"><span class="required">*</span> To</label>
+          </div>
+          <div class="input">
+            <select name="owner">
+              <option value="2">Victor Alonso Alonso</option>
+              <option value="3">David González Nieto</option>
+              <option value="1">You (Juan Hernández Babón)</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <div class="label">
+            <label for="date">Since</label>
+          </div>
+          <div class="input">
+            <input type="text" name="date" id="jsDatepicker" />
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset">
+          <div class="label">
+            <label for="note">Note</label>
+          </div>
+          <div class="input">
+            <textarea name="note"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset class="fieldset last">
+          <div class="label">
+          </div>
+          <div class="input">
+            <input type="submit" value="Create" />
+          </div>
+        </fieldset>
+      </section>
+      <footer class="instructions">
+        <p>The fields with a <span class="required">*</span> are required.</p>
+      </footer>
+    </form>
+  </section>
+</section>
+<% content_for :aside do -%>
+  <section class="info box">
+    <header>
+      <h2>Total debt:</h2>
+    </header>
+    <section>
+      <p>You owe <span class="amount minus">20€</span>.</p>
+    </section>
+  </section>
+<% end -%>

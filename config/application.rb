@@ -14,10 +14,12 @@ module DebtPursuit
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
-    # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+    # link: https://github.com/gregwebs/memory_test_fix.git
+    config.plugins = [ :memory_test_fix ]
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -31,7 +33,7 @@ module DebtPursuit
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w()
+    config.action_view.javascript_expansions[:defaults] = %w(jquery.min rails)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -41,7 +43,8 @@ module DebtPursuit
 
     # Generators
     config.generators do |g|
-      g.fixture_replacement :factory_girl
+      g.stylesheets false
+      g.test_framework :test_unit, :fixture_replacement => :factory_girl
     end
   end
 end
