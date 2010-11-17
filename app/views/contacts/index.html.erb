@@ -1,0 +1,37 @@
+<section class="part">
+  <header class="head">
+    <h1>Contacts</h1>
+  </header>
+  <section>
+    <% @contacts.each do |contact| -%>
+      <section class="contact">
+        <div class="data field">
+          <p><%= contact.full_name %></p>
+          <p><%= mail_to contact.email %></p>
+        </div>
+        <div class="info field">
+          <p>This contact owes <span class="amount plus">3.45€</span> to you.</p>
+          <p><%= link_to "See details", contact %></p>
+        </div>
+        <div class="controls field">
+          <ul>
+            <li>
+              <%= link_to "Edit", edit_contact_path(contact) %>
+            </li>
+            <li>
+              <%= link_to "Delete", contact, :confirm => "Are you sure?", :method => :delete %>
+            </li>
+          </ul>
+        </div>
+      </section>
+    <% end -%>
+  </section>
+</section>
+
+<% content_for :aside do -%>
+  <div>
+    <span class="button first last">
+      <%= link_to "Create new contact", new_contact_path %>
+    </span>
+  </div>
+<% end -%>

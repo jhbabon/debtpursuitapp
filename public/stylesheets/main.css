@@ -1,9 +1,7 @@
-/* Global */
 @font-face {
   font-family: Chunkfive;
   src: url('../fonts/Chunkfive.otf');
 }
-/* HTML5 blocks */
 article,
 aside,
 footer,
@@ -12,9 +10,9 @@ hgroup,
 nav,
 section { display: block }
 body {
-  font-size: 12px;
+  font-size: 14px;
   font-family: Helvetica, sans-serif;
-  line-height: 1.5em;
+  line-height: 1.7em;
   background-color: #333;
   color: #2B2B2B;
 }
@@ -62,6 +60,7 @@ a:hover {
 }
 .nav.hor ul li:last-child { border-right: none }
 .user_info {
+  font-size: 0.9em;
   text-align: right;
   margin-bottom: 1.5em;
   padding-top: .5em;
@@ -74,7 +73,7 @@ a.logout:hover {
 }
 .logo {
   float: left;
-  padding: 15px;
+  padding: 20px 0 15px 0;
   font-family: Chunkfive;
   color: #FFF;
 }
@@ -86,17 +85,19 @@ a.logout:hover {
 .nav.buttons {
   float: left;
   font-size: 1.1em;
-  padding: 1.75em 0 0 2em;
+  padding: 1.7em 0 0 2em;
 }
  .nav.buttons .button {
-   display: block;
-   margin: 0;
-   padding: 0;
    float: left;
-   width: auto;
-   font-size: 1.1em;
  }
- .nav.buttons .button.first a {
+.button {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font-size: 1.1em;
+}
+ .button.first a {
    -webkit-border-top-left-radius: 5px;
    -webkit-border-bottom-left-radius: 5px;
    -moz-border-radius-topleft: 5px;
@@ -104,7 +105,7 @@ a.logout:hover {
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
  }
- .nav.buttons .button.last a {
+ .button.last a {
    -webkit-border-top-right-radius: 5px;
    -webkit-border-bottom-right-radius: 5px;
    -moz-border-radius-topright: 5px;
@@ -112,23 +113,18 @@ a.logout:hover {
    border-top-right-radius: 5px;
    border-bottom-right-radius: 5px;
  }
- .nav.buttons a {
+ .button a {
    margin: 0;
    padding: 8px 10px;
    color: #CCC;
    text-decoration: none;
    background-color: #4D4D4D;
  }
- .nav.buttons a:hover,
- .nav.buttons a.selected {
+ .button a:hover,
+ .button a.selected {
    color: #FFF;
    background-color: #6E6E6E;
  }
-.nav.buttons.inline {
-  width: 100%;
-  padding: 20px 10px;
-  margin-bottom: 30px;
-}
 .layout {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -142,20 +138,26 @@ a.logout:hover {
   width: 560px;
   float: left;
 }
-.part .head { border-bottom: 2px solid #39C }
+.part { margin-bottom: 60px; }
+ .part .head {
+   margin-bottom: 20px;
+   border-bottom: 2px solid #39C;
+ }
+.text_right { text-align: right; }
 .field_with_errors {
   display: inline;
   margin: 0;
   padding: 0;
 }
 .form { margin: 20px 10px }
+ .form .errors,
+ .form .instructions,
+ .form .form_head { padding: 10px 0 12px 85px; }
  .form .form_head {
-   padding: 10px 0 12px 110px;
    border-bottom: 1px solid #CCC;
  }
  .form .errors,
  .form .instructions {
-   padding: 3px 0 4px 110px;
    border-style: solid;
    border-width: 3px;
  }
@@ -199,19 +201,53 @@ a.logout:hover {
    height: 80px;
  }
 .form .required { color: #CC0000 }
-.debt.short {
+.debt.short,
+.contact {
   overflow: hidden;
-  margin: 20px 10px;
+  margin: 20px 0;
   padding-bottom: 5px;
   border-bottom: 1px solid #39C;
+  position: relative;
 }
- .debt.short .field {
-   margin-left: 10px;
+ .contact .data,
+ .contact .info,
+ .contact .controls {
+   padding: 6px;
+ }
+ .contact .data {
+   width: 208px;
+   overflow: hidden;
+   z-index: 1;
+   position: relative;
+ }
+ .contact .data:hover {
+   width: auto;
+   padding: 5px;
+   border: 1px solid #CCC;
+   background-color: #E5E5E5;
+   z-index: 3;
+ }
+ .contact .info {
+   width: 238px;
+   position: absolute;
+   left: 225px;
+   z-index: 2;
+ }
+ .contact .controls {
+   text-align: right;
+   width: auto;
+   position: absolute;
+   left: 490px;
+   z-index: 4;
+ }
+ .debt.short .field,
+ .contact .field {
+   margin-left: 5px;
    float: left;
  }
  .debt.short .date {
    margin: 0;
-   width: 70px;
+   width: 75px;
    text-align: center;
  }
  .debt.short .type a {
@@ -222,7 +258,7 @@ a.logout:hover {
    height: 16px;
    text-indent: -9999px;
    background-repeat: no-repeat;
-   background-position: center top;
+   background-position: center 2px;
  }
  .debt.short .type a:hover {
    color: #000;
@@ -231,17 +267,18 @@ a.logout:hover {
 /* TODO: write icons license: http://brsev.com/#licensing */
  .debt.short .type a.new { background-image: url('../images/icons/star16.png') }
  .debt.short .type a.calculated { background-image: url('../images/icons/gear16.png') }
- .debt.short .info { width: 300px }
+ .debt.short .info { width: 320px }
  .debt.short .controls {
-   width: 113px;
+   width: 120px;
    text-align: right;
  }
 .sidebar {
-  margin: 20px;
+  margin: 50px 20px;
   width: 200px;
   float: left;
 }
  .sidebar .info { padding: 15px }
+ .sidebar .button { margin-bottom: 15px; }
 .amount {
   font-size: 1.2em;
   font-weight: bold;

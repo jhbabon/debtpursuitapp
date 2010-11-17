@@ -1,0 +1,16 @@
+<section class="part">
+  <header class="head">
+    <h1>Create new contact</h1>
+  </header>
+  <section>
+    <%= render :partial => 'form', :locals => { :contact => @contact } %>
+  </section>
+</section>
+
+<% content_for :aside do -%>
+  <div>
+    <span class="button first last">
+      <%= link_to "See all contacts", contacts_path %>
+    </span>
+  </div>
+<% end -%>

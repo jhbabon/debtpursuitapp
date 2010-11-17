@@ -1,0 +1,23 @@
+<section class="part">
+  <header class="head">
+    <h1>Contact info</h1>
+  </header>
+  <section>
+    <p><strong>First name:</strong> <%= @contact.first_name %></p>
+    <p><strong>Last name:</strong> <%= @contact.last_name %></p>
+    <p><strong>Email:</strong> <%= mail_to @contact.email %></p>
+  </section>
+</section>
+
+<% content_for :aside do -%>
+  <div>
+    <span class="button first last">
+      <%= link_to "Edit contact", edit_contact_path(@contact) %>
+    </span>
+  </div>
+  <div>
+    <span class="button first last">
+      <%= link_to "See all contacts", contacts_path %>
+    </span>
+  </div>
+<% end -%>

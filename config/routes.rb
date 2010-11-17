@@ -1,4 +1,6 @@
 DebtPursuit::Application.routes.draw do
+  resources :contacts
+
   devise_for :users, :skip => [:sessions] do
     get "login" => "devise/sessions#new", :as => :new_user_session
     post "login" => "devise/sessions#create", :as => :user_session
