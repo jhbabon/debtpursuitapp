@@ -9,6 +9,7 @@ DebtPursuit::Application.routes.draw do
 
   get "home/index"
 
+  match "/home" => "home#index", :as => :home
   root :to => "home#index"
 
   # The priority is based upon order of creation:

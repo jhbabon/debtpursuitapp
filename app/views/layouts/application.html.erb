@@ -27,16 +27,7 @@
       <div class="logo">
         <h1>Debt<span class="light">Pursuit</span></h1>
       </div>
-      <nav class="nav buttons">
-        <%# TODO: auto select the controller %>
-        <span class="button first">
-          <%= link_to "Home", home_index_path, :class => "selected" %>
-        </span>
-        <span class="button"><a href="#">Debts</a></span>
-        <span class="button last">
-          <%= link_to "Contacts", contacts_path %>
-        </span>
-      </nav>
+      <%= navigation :home, :contacts %>
     </header>
 
     <div class="container">
