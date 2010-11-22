@@ -1,14 +1,10 @@
 <%= form_for(contact,
-             :builder => CustomFormBuilder,
-             :html    => { :class => %(form box) }) do |f| %>
-  <%= f.form_head "Fill the contact data" %>
-  <section class="form_body">
-    <%= f.form_errors form_errors_expander(contact.errors.full_messages) %>
-    <%= f.hidden_field :user_id %>
-    <%= f.text_field :email, :required => true %>
-    <%= f.text_field :first_name, :required => true %>
-    <%= f.text_field :last_name, :required => true %>
-    <%= f.submit "Save", :cancel => link_to("cancel", contacts_path) %>
-  </section>
-  <%= f.instructions raw("<p>The fields with a <span class=\"required\">*</span> are required.</p>") %>
+             :builder => FancyFormBuilder,
+             :html    => { :class => %(form) }) do |f| %>
+  <%= f.form_error %>
+  <%= f.hidden_field :user_id %>
+  <%= f.text_field :email %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.submit "Save", :cancel => link_to("cancel", contacts_path) %>
 <% end -%>

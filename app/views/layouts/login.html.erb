@@ -2,19 +2,34 @@
 <html>
   <head>
     <title>DebtPursuit</title>
-    <%= stylesheet_link_tag 'reset', 'main' %>
+    <%= stylesheet_link_tag "reset" %>
+    <%= stylesheet_link_tag "1140", :media => "screen" %>
+    <!--[if lte IE 9]>
+      <%= stylesheet_link_tag "ie", :media => "screen" %>
+    <![endif]-->
+    <%= stylesheet_link_tag "smallerscreen", :media => "only screen and (max-width: 1023px)" %>
+    <%= stylesheet_link_tag "mobile", :media => "handheld, only screen and (max-width: 767px)" %>
+    <%= stylesheet_link_tag "layout", :media => "screen" %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
-    <header class="header container login">
-      <div class="logo">
-        <h1>Debt<span class="light">Pursuit</span></h1>
+  <body class="container">
+    <div class="row">
+      <div class="fourcol">
+        &nbsp;
       </div>
-    </header>
-    <div class="container login">
-      <section>
-        <%= yield %>
-      </section>
+      <div class="fourcol login">
+        <header class="logo">
+          <h1>Debt<span class="light">Pursuit</span></h1>
+        </header>
+        <section class="content">
+          <%= yield %>
+        </section>
+      </div>
+      <div class="fourcol last">
+        &nbsp;
+      </div>
     </div>
+
+    <%= javascript_include_tag :defaults %>
   </body>
 </html>

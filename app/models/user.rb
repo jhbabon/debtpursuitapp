@@ -11,9 +11,14 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
 
   has_many :contacts
+  has_many :budgets
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def total_debt
+    budgets.inject(0) { |total, budget| total += budget.total }
   end
 
   def update_with_password(params={})

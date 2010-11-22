@@ -1,0 +1,103 @@
+<% content_for :subnavigation do -%>
+  <div class="elevencol last">
+    <%= subnavigation :new_debt %>
+  </div>
+<% end -%>
+
+<header class="container">
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <h1>Budgets</h1>
+    </div>
+  </div>
+</header>
+<section>
+<div class="container">
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <p class="total_debt">
+        Total debt: <%= mark_amount(currency(current_user.total_debt)) %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="twocol">
+      <h4>Contact</h4>
+    </div>
+    <div class="twocol text_right">
+      <h4>Debts</h4>
+    </div>
+    <div class="twocol text_right">
+      <h4>Loans</h4>
+    </div>
+    <div class="twocol text_right">
+      <h4>Total</h4>
+    </div>
+    <div class="onecol text_right">
+      <h4>Paid</h4>
+    </div>
+    <div class="twocol last">
+      &nbsp;
+    </div>
+  </div>
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <hr class="recess" />
+    </div>
+  </div>
+</div>
+  <% @budgets.each do |budget| -%>
+  <div class="container">
+    <div class="row budget">
+      <div class="onecol">
+        &nbsp;
+      </div>
+      <div class="twocol">
+        <%= budget.contact.full_name %>
+      </div>
+      <div class="twocol debt text_right">
+        <%= currency(budget.total_debt) %>
+      </div>
+      <div class="twocol loan text_right">
+        <%= currency(budget.total_loan) %>
+      </div>
+      <div class="twocol text_right">
+        <%= mark_amount(currency(budget.total)) %>
+      </div>
+      <div class="onecol text_right">
+        <%= boolean_to_string(budget.paid?) %>
+      </div>
+      <div class="twocol last">
+        <% if budget.paid? -%>
+          <%= button_to "Not pay", { :controller => "budgets", :action => "unpay", :id => budget.to_param }, :method => :put %>
+        <% else -%>
+          <%= button_to "Pay", { :controller => "budgets", :action => "pay", :id => budget.to_param }, :method => :put %>
+        <% end -%>
+        <%= link_to "See more", budget.contact, :class => "button" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="onecol">
+        &nbsp;
+      </div>
+      <div class="elevencol last">
+        <hr class="recess" />
+      </div>
+    </div>
+  </div>
+  <% end -%>
+</section>

@@ -1,4 +1,14 @@
 DebtPursuit::Application.routes.draw do
+  resources :debts do
+    put :pay, :on => :member
+    put :unpay, :on => :member
+  end
+
+  resources :budgets do
+    put :pay, :on => :member
+    put :unpay, :on => :member
+  end
+
   resources :contacts
 
   devise_for :users, :skip => [:sessions] do

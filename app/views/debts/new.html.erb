@@ -1,0 +1,21 @@
+<% content_for :subnavigation do -%>
+  <div class="elevencol last">
+    <%= subnavigation link_to("See all budgets", budgets_path) %>
+  </div>
+<% end -%>
+
+<section class="container">
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <header>
+        <h1>Create new debt</h1>
+      </header>
+      <section>
+        <%= render :partial => 'form', :locals => { :debt => @debt } %>
+      </section>
+    </div>
+  </div>
+</section>

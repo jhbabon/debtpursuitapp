@@ -1,21 +1,21 @@
-<section class="part">
-  <header class="head">
-    <h1>Edit contact</h1>
-  </header>
-  <section>
-    <%= render :partial => 'form', :locals => { :contact => @contact } %>
-  </section>
-</section>
-
-<% content_for :aside do -%>
-  <div>
-    <span class="button first last">
-      <%= link_to "Create new contact", new_contact_path %>
-    </span>
-  </div>
-  <div>
-    <span class="button first last">
-      <%= link_to "See all contacts", contacts_path %>
-    </span>
+<% content_for :subnavigation do -%>
+  <div class="elevencol last">
+    <%= subnavigation link_to("See all contacts", contacts_path), :new_contact %>
   </div>
 <% end -%>
+
+<section class="container">
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <header>
+        <h1>Edit this contact</h1>
+      </header>
+      <section>
+        <%= render :partial => 'form', :locals => { :contact => @contact } %>
+      </section>
+    </div>
+  </div>
+</section>
