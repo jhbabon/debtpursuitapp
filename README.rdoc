@@ -20,13 +20,16 @@ de piso, por ejemplo.
   a quién.
 * Historial de todas las deudas.
 * Registro de contactos.
+
+== TODO:
+
 * Asociación de contactos con otros usuarios de la aplicación, para llevar un
   control común de las deudas.
 
 
 == Especificaciones técnicas
 
-* Está desarrollada con Rails v3.0.1.
-* Usa jQuery 1.4.3.
+* Está desarrollada con Rails v3.0.3.
+* Usa jQuery v1.4.4 y jQuery UI v1.8.6.
 * Usa PostgreSQL.
 * Markup con HTML5.
