@@ -1,17 +1,12 @@
 class BudgetsController < ApplicationController
+  load_and_authorize_resource
+
   # GET /budgets
   def index
-    @budgets = current_user.budgets
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
   end
 
   # PUT /budgets/1
   def update
-    @budget = Budget.find(params[:id])
-
     respond_to do |format|
       if @budget.update_attributes(params[:budget])
         format.html { redirect_to(@budget, :notice => 'budget was successfully updated.') }
@@ -34,7 +29,6 @@ class BudgetsController < ApplicationController
   protected
 
   def pay_budget(value=true)
-    @budget = Budget.find(params[:id])
     respond_to do |format|
       @budget.update_attributes({ :paid => value })
       @contact = @budget.contact

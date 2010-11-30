@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @new_debt = Debt.new
-    @debts = Debt.order("updated_at DESC").limit(5).all
+    @debts = Debt.owned_by(current_user).recent
   end
 
   def license

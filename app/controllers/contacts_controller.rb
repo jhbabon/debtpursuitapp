@@ -1,11 +1,12 @@
 class ContactsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     # TODO: pagination
-    @contacts = current_user.contacts.order("first_name")
+    @contacts = @contacts.order("first_name")
   end
 
   def show
-    @contact = Contact.find(params[:id])
   end
 
   def new
@@ -13,8 +14,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(params[:contact])
-
     respond_to do |format|
       if @contact.save
         format.html { redirect_to(@contact) }
@@ -25,12 +24,9 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @contact = Contact.find(params[:id])
   end
 
   def update
-    @contact = Contact.find(params[:id])
-
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
         format.html { redirect_to(@contact) }
@@ -41,8 +37,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    contact = Contact.find(params[:id])
-    contact.destroy
+    @contact.destroy
 
     respond_to do |format|
       format.html { redirect_to(:action => :index) }

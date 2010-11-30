@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = exception.message
+    redirect_to root_url
+  end
+
 
   protected
 

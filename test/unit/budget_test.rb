@@ -1,6 +1,5 @@
 require 'test_helper'
 
-
 class BudgetTest < ActiveSupport::TestCase
 
   test "should get paid and unpaid" do

@@ -51,4 +51,15 @@ class DebtTest < ActiveSupport::TestCase
     assert !debt.debt?
     assert debt.loan?
   end
+
+  test "should get debts from user" do
+    user = Factory.create(:user)
+    budget1 = Factory.create(:budget, :user => user)
+    budget2 = Factory.create(:budget, :user => user)
+    1.upto(2) { Factory.create(:debt, :budget => budget1) }
+    1.upto(2) { Factory.create(:debt, :budget => budget2) }
+    Factory.create(:debt)
+
+    assert_equal 4, Debt.owned_by(user).count
+  end
 end

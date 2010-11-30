@@ -9,6 +9,9 @@ class Debt < ActiveRecord::Base
 
   belongs_to :budget
 
+  scope :owned_by, proc { |user| joins(:budget).where("budgets.user_id = ?", user.id) }
+  scope :recent, limit(5).order("updated_at DESC")
+
   self::KINDS.each do |method|
     src = <<-END_SRC
     def #{method}?
