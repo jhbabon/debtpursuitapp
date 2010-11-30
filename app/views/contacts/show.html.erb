@@ -24,17 +24,11 @@
     </div>
     <div class="twocol">
       <section>
-        <p class="total_debt">
-          Total debt: <%= mark_amount(currency(@contact.budget.total)) %>
-        </p>
+        <%= render :partial => 'shared/total_debt', :object => @contact.budget.total %>
       </section>
     </div>
     <div class="ninecol last">
-      <% if @contact.budget.paid? -%>
-        <%= button_to "Not pay all", { :controller => "budgets", :action => "unpay", :id => @contact.budget.to_param }, :method => :put %>
-      <% else -%>
-        <%= button_to "Pay all", { :controller => "budgets", :action => "pay", :id => @contact.budget.to_param }, :method => :put %>
-      <% end -%>
+      <%= render :partial => 'shared/pay_button', :locals => { :object => @contact.budget } %>
     </div>
   </div>
   <div class="row">
@@ -67,57 +61,6 @@
       &nbsp;
     </div>
   </div>
-  <div class="row">
-    <div class="onecol">
-      &nbsp;
-    </div>
-    <div class="tencol">
-      <hr class="recess" />
-    </div>
-    <div class="onecol last">
-      &nbsp;
-    </div>
-  </div>
-  <% @contact.budget.debts.order("date DESC").each do |debt| -%>
-    <div class="row debt_info">
-      <div class="onecol">
-        &nbsp;
-      </div>
-      <div class="twocol">
-        <%= debt.date %>
-      </div>
-      <div class="twocol text_right">
-        <%= mark_amount(currency(debt.amount)) %>
-      </div>
-      <div class="twocol">
-        <%= debt.kind.humanize %>
-      </div>
-      <div class="onecol">
-        <%= boolean_to_string debt.paid? %>
-      </div>
-      <div class="threecol">
-        <% if debt.paid? -%>
-          <%= button_to "Not pay", { :controller => "debts", :action => "unpay", :id => debt.to_param }, :method => :put %>
-        <% else -%>
-          <%= button_to "Pay", { :controller => "debts", :action => "pay", :id => debt.to_param }, :method => :put %>
-        <% end -%>
-        <%= link_to "Edit", edit_debt_path(debt), :class => "button" %>
-        <%= link_to "Delete", debt, :confirm => "Are you sure?", :method => :delete, :class => "button delete" %>
-      </div>
-      <div class="onecol last">
-        &nbsp;
-      </div>
-    </div>
-    <div class="row">
-      <div class="onecol">
-        &nbsp;
-      </div>
-      <div class="tencol">
-        <hr class="recess" />
-      </div>
-      <div class="onecol last">
-        &nbsp;
-      </div>
-    </div>
-  <% end -%>
+  <%= render :partial => 'debts/debt_spacer' %>
+  <%= render @contact.budget.debts.order("date DESC") -%>
 </section>

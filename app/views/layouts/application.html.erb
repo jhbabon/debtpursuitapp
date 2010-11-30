@@ -15,34 +15,8 @@
   </head>
   <body>
 
-    <div class="container user_info">
-      <div class="row">
-        <nav class="nav twelvecol last">
-          <ul>
-            <li>
-              <%= current_user.full_name %>
-            </li>
-            <li>
-              <%= link_to "Settings", edit_user_registration_path %>
-            </li>
-            <li>
-              <%= link_to "Logout", destroy_user_session_path, :class => "logout" %>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <header class="header container">
-      <div class="row">
-        <div class="threecol logo">
-          <h1>Debt<span class="light">Pursuit</span></h1>
-        </div>
-        <div class="ninecol last">
-          <%= navigation :home, :budgets, :contacts %>
-        </div>
-      </div>
-    </header>
+    <%= render :partial => 'layouts/user_info' %>
+    <%= render :partial => 'layouts/main_nav' %>
 
     <div class="layout">
       <div class="container">
@@ -56,23 +30,7 @@
       <%= yield %>
     </div>
 
-    <footer class="footer container">
-      <div class="row">
-        <nav class="nav eightcol">
-          <ul>
-            <li><a href="#">License</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="fourcol last">
-          <div class="version_info">
-            <p><%= "Code name: #{DebtPursuit::Version::CODE_NAME}. Version: #{DebtPursuit::Version::NUMBER}" %></p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
+    <%= render :partial => 'layouts/footer' %>
     <%= javascript_include_tag :defaults %>
   </body>
 </html>

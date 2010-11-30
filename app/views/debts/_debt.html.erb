@@ -1,0 +1,26 @@
+<div class="row debt_info">
+  <div class="onecol">
+    &nbsp;
+  </div>
+  <div class="twocol">
+    <%= debt.date %>
+  </div>
+  <div class="twocol text_right">
+    <%= mark_amount(currency(debt.amount)) %>
+  </div>
+  <div class="twocol">
+    <%= debt.kind.humanize %>
+  </div>
+  <div class="onecol">
+    <%= boolean_to_string debt.paid? %>
+  </div>
+  <div class="threecol">
+    <%= render :partial => 'shared/pay_button', :locals => { :object => debt } %>
+    <%= link_to "Edit", edit_debt_path(debt), :class => "button" %>
+    <%= link_to "Delete", debt, :confirm => "Are you sure?", :method => :delete, :class => "button delete" %>
+  </div>
+  <div class="onecol last">
+    &nbsp;
+  </div>
+</div>
+<%= render :partial => 'debts/debt_spacer' %>
