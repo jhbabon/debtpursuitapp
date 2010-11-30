@@ -12,10 +12,6 @@ class HomeController < ApplicationController
     draft
   end
 
-  def contact
-    draft
-  end
-
   protected
 
   def draft
