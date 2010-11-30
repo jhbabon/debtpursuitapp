@@ -29,4 +29,12 @@
     </div>
     <%= render :partial => "debts/debt_spacer" %>
   <% end -%>
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <%= will_paginate @contacts %>
+    </div>
+  </div>
 </section>

@@ -53,5 +53,13 @@
   </div>
   <div class="container">
     <%= render @budgets %>
+    <div class="row">
+      <div class="onecol">
+        &nbsp;
+      </div>
+      <div class="elevencol last">
+        <%= will_paginate @budgets %>
+      </div>
+    </div>
   </div>
 </section>

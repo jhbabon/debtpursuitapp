@@ -2,11 +2,11 @@ class ContactsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    # TODO: pagination
-    @contacts = @contacts.order("first_name")
+    @contacts = current_user.contacts.order("first_name").paginate(:page => params[:page])
   end
 
   def show
+    @debts = @contact.budget.debts.order("date DESC").paginate(:page => params[:page])
   end
 
   def new

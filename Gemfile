@@ -8,7 +8,8 @@ gem 'rails', '3.0.3'
 gem 'pg'
 gem 'jquery-rails'
 gem 'devise', '~> 1.1'
-gem 'cancan'
+gem 'cancan', '~> 1.4'
+gem 'will_paginate', '~> 3.0.pre2'
 
 group :development do
   gem 'rails3-generators'

@@ -62,5 +62,13 @@
     </div>
   </div>
   <%= render :partial => 'debts/debt_spacer' %>
-  <%= render @contact.budget.debts.order("date DESC") -%>
+  <%= render @debts -%>
+  <div class="row">
+    <div class="onecol">
+      &nbsp;
+    </div>
+    <div class="elevencol last">
+      <%= will_paginate @debts %>
+    </div>
+  </div>
 </section>

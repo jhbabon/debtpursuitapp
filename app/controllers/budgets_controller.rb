@@ -3,6 +3,7 @@ class BudgetsController < ApplicationController
 
   # GET /budgets
   def index
+    @budgets = current_user.budgets.paginate(:page => params[:page])
   end
 
   # PUT /budgets/1
