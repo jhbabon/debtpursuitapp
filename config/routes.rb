@@ -18,8 +18,14 @@ DebtPursuit::Application.routes.draw do
   end
 
   get "home/index"
+  get "home/license"
+  get "home/about"
+  get "home/contact"
 
   match "/home" => "home#index", :as => :home
+  match "/license" => "home#license", :as => :license
+  match "/about" => "home#about", :as => :about
+  match "/contact" => "home#contact", :as => :contact
   root :to => "home#index"
 
   # The priority is based upon order of creation:

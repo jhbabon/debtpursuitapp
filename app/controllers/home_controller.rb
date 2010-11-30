@@ -4,4 +4,24 @@ class HomeController < ApplicationController
     @debts = Debt.order("updated_at DESC").limit(5).all
   end
 
+  def license
+    draft
+  end
+
+  def about
+    draft
+  end
+
+  def contact
+    draft
+  end
+
+  protected
+
+  def draft
+    respond_to do |format|
+      format.html { render :template => "home/draft" }
+    end
+  end
+
 end
