@@ -1,8 +1,8 @@
 module DebtPursuit
   module Version
     MAYOR = "0"
-    MINOR = "23"
-    PATCH = "3"
+    MINOR = "25"
+    PATCH = "5"
 
     NUMBER = [MAYOR, MINOR, PATCH].join(".")
 
