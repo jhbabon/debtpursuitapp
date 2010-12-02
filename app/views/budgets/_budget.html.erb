@@ -6,20 +6,20 @@
     <%= budget.contact.full_name %>
   </div>
   <div class="twocol debt text_right">
-    <%= currency(budget.total_debt) %>
+    <%= number_to_currency(budget.total_debt) %>
   </div>
   <div class="twocol loan text_right">
-    <%= currency(budget.total_loan) %>
+    <%= number_to_currency(budget.total_loan) %>
   </div>
   <div class="twocol text_right">
-    <%= mark_amount(currency(budget.total)) %>
+    <%= mark_amount(number_to_currency(budget.total)) %>
   </div>
   <div class="onecol text_right">
     <%= boolean_to_string(budget.paid?) %>
   </div>
   <div class="twocol last">
     <%= render :partial => 'shared/pay_button', :locals => { :object => budget } %>
-    <%= link_to "See more", budget.contact, :class => "button" %>
+    <%= link_to t("app.links.see_more"), budget.contact, :class => "button" %>
   </div>
 </div>
 <%= render :partial => 'budget_spacer' %>

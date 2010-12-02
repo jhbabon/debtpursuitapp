@@ -2,13 +2,13 @@
   <div class="row">
     <nav class="nav eightcol">
       <ul>
-        <li><%= link_to "License", license_path %></li>
-        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to t("app.footer.license"), license_path %></li>
+        <li><%= link_to t("app.footer.about"), about_path %></li>
       </ul>
     </nav>
     <div class="fourcol last">
       <div class="version_info">
-        <p><%= "Code name: #{DebtPursuit::Version::CODE_NAME}. Version: #{DebtPursuit::Version::NUMBER}" %></p>
+        <p><%= "#{t("app.footer.code_name")}: #{DebtPursuit::Version::CODE_NAME}. #{t("app.footer.version")}: #{DebtPursuit::Version::NUMBER}" %></p>
       </div>
     </div>
   </div>

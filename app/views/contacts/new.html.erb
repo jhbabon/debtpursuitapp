@@ -1,6 +1,6 @@
 <% content_for :subnavigation do -%>
   <div class="elevencol last">
-    <%= subnavigation link_to("See all contacts", contacts_path) %>
+    <%= subnavigation link_to(t("app.links.see_all_contacts"), contacts_path) %>
   </div>
 <% end -%>
 
@@ -11,7 +11,7 @@
     </div>
     <div class="elevencol last">
       <header>
-        <h1>Create new contact</h1>
+        <h1><%= t "views.contacts.new.header" %></h1>
       </header>
       <section>
         <%= render :partial => 'form', :locals => { :contact => @contact } %>

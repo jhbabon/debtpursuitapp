@@ -1,0 +1,11 @@
+en:
+  views:
+    home:
+      index:
+        header: "Latests debts"
+        table:
+          date: "Date"
+          contact: "Contact"
+          amount: "Amount"
+          type: "Type"
+          paid: "Paid"

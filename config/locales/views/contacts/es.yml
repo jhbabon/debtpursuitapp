@@ -1,0 +1,11 @@
+es:
+  views:
+    contacts:
+      index:
+        header: "Contactos"
+      new:
+        header: "Crear nuevo contacto"
+      edit:
+        header: "Editar este contacto"
+      show:
+        header: "Últimas deudas"

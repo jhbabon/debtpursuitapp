@@ -6,7 +6,7 @@ module ApplicationHelper
     links.each do |link|
       link_css = link == @current_tab ? "selected" : ""
       buttons << content_tag(:span,
-                             link_to(link.to_s.humanize,
+                             link_to(t("app.main_nav.#{link.to_s}"),
                                      send("#{link.to_s}_path"),
                                      :class => link_css),
                              :class => %w(tab))
@@ -16,11 +16,11 @@ module ApplicationHelper
   end
 
   def subnavigation(*links)
-    subnav = content_tag(:dt, "More options:")
+    subnav = content_tag(:dt, "#{t("app.sub_nav.more_options")}:")
     links.each do |link|
       subnav_link = case link
       when Symbol
-        link_to(link.to_s.humanize, send("#{link.to_s}_path"))
+        link_to(t("app.links.#{link.to_s}"), send("#{link.to_s}_path"))
       when String
         link
       else
@@ -34,12 +34,8 @@ module ApplicationHelper
     end
   end
 
-  def currency(number)
-    number_to_currency(number, :format => "%n%u", :unit => "&euro;")
-  end
-
   def boolean_to_string(value)
-    value ? "yes" : "no"
+    value ? t("boolean.true_value") : t("boolean.false_value")
   end
 
   def mark_amount(amount)

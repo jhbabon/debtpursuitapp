@@ -1,18 +1,16 @@
 <div class="threecol">
   <h2><%= contact.full_name %></h2>
   <h3><%= mail_to contact.email %></h3>
-  <p class="total_debt">
-    Total debt: <%= mark_amount(currency(contact.budget.total)) %>
-  </p>
-  <p><%= link_to "See more details", contact, :class => "button main" %></p>
+  <%= render :partial => 'shared/total_debt', :object => contact.budget.total %>
+  <p><%= link_to t("app.links.see_more"), contact, :class => "button main" %></p>
 </div>
 <div class="onecol">
   <ul>
     <li>
-      <%= link_to "Edit", edit_contact_path(contact), :class => "button" %>
+      <%= link_to t("app.links.edit"), edit_contact_path(contact), :class => "button" %>
     </li>
     <li>
-      <%= link_to "Delete", contact, :confirm => "Are you sure?", :method => :delete, :class => "button delete" %>
+      <%= link_to t("app.links.delete"), contact, :confirm => t("app.actions.confirmation"), :method => :delete, :class => "button delete" %>
     </li>
   </ul>
 </div>

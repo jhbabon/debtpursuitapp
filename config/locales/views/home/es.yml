@@ -1,0 +1,11 @@
+es:
+  views:
+    home:
+      index:
+        header: "Últimas deudas"
+        table:
+          date: "Fecha"
+          contact: "Contacto"
+          amount: "Cantidad"
+          type: "Tipo"
+          paid: "Pagado"

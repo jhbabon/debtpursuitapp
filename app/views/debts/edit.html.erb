@@ -1,6 +1,6 @@
 <% content_for :subnavigation do -%>
   <div class="elevencol last">
-    <%= subnavigation link_to("See all budgets", budgets_path), :new_debt %>
+    <%= subnavigation link_to(t("app.links.see_all_budgets"), budgets_path), :new_debt %>
   </div>
 <% end -%>
 
@@ -11,7 +11,7 @@
     </div>
     <div class="elevencol last">
       <header>
-        <h1>Edit this debt</h1>
+        <h1><%= t "views.debts.edit.header"  %></h1>
       </header>
       <section>
         <%= render :partial => 'form', :locals => { :debt => @debt } %>

@@ -1,0 +1,11 @@
+es:
+  views:
+    debts:
+      new:
+        header: "Crear nueva deuda"
+      edit:
+        header: "Editar esta deuda"
+      form:
+        hints:
+          kind: "Selecciona Deuda si debes dinero. Préstamo si has dejado dinero a alguien"
+          contact: "La persona que te debe o ha dejado dinero"

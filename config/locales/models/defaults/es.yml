@@ -1,0 +1,27 @@
+es:
+  activerecord:
+    errors:
+      template:
+          header:
+            one:   "1 error ha impedido a este formulario guardarse con éxito"
+            other:   "%{count} errores han impedido a este formulario guardarse con éxito"
+      messages:
+        inclusion: "no está incluido en la lista"
+        exclusion: "está reservado"
+        invalid: "no es válido"
+        confirmation: "no coincide con la confirmación"
+        accepted: "debe ser aceptado"
+        empty: "no puede estar vacío"
+        blank: "no puede estar en blanco"
+        too_long: "es demasiado largo (el máximo es de %{count} caracteres)"
+        too_short: "es demasiado corto (el mínimo es de %{count} caracteres)"
+        wrong_length: "tiene un tamaño incorrecto (debe ser de %{count} caracteres)"
+        taken: "ya está en uso"
+        not_a_number: "no es un número"
+        greater_than: "debe ser mayor que %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual que %{count}"
+        equal_to: "debe ser igual que %{count}"
+        less_than: "debe ser menor que %{count}"
+        less_than_or_equal_to: "debe ser menor o igual que %{count}"
+        odd: "debe ser impar"
+        even: "debe ser par"

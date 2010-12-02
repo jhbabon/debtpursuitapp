@@ -1,0 +1,34 @@
+es:
+  app:
+    user_info:
+      settings: "Preferencias"
+      logout: "Salir"
+    main_nav:
+      home: "Inicio"
+      contacts: "Contactos"
+      budgets: "Presupuestos"
+    sub_nav:
+      more_options: "Más opciones"
+    links:
+      new_debt: "Nueva deuda"
+      new_contact: "Nuevo contacto"
+      edit: "Editar"
+      edit_this_contact: "Editar este contacto"
+      delete: "Eliminar"
+      delete_this_contact: "Eliminar este contacto"
+      see_more: "Ver más"
+      paid: "Pagado"
+      unpaid: "No pagado"
+      see_all_contacts: "Ver todos los contactos"
+      see_all_budgets: "Ver todos los préstamos"
+    form:
+      submit: "Guardar"
+      cancel: "cancelar"
+      required: "Requerido"
+    actions:
+      confirmation: "¿Estás seguro/a?"
+    footer:
+      license: "Licencia"
+      about: "Acerca de"
+      code_name: "Nombre clave"
+      version: "Versión"

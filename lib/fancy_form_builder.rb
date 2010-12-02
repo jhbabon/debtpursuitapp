@@ -1,6 +1,6 @@
 class FancyFormBuilder < ActionView::Helpers::FormBuilder
   def form_error(msg = nil)
-    msg ||=  "#{@template.pluralize(self.object.errors.count, "error")} prohibited this form from being saved" unless self.object.errors.empty?
+    msg ||= I18n.t("activerecord.errors.template.header", :count => self.object.errors.count) unless self.object.errors.empty?
     unless msg.blank?
       @template.content_tag :div, :class  => "alert" do
         msg
@@ -77,7 +77,7 @@ class FancyFormBuilder < ActionView::Helpers::FormBuilder
     buttons = values.map { |value|
       tag_value = value;
       lb = fancy_label("#{method.to_s}_#{tag_value}",
-                       :label => tag_value.humanize);
+                       :label => I18n.t("activerecord.attributes.#{self.object.class.to_s.downcase}.#{method.to_s.pluralize}.#{tag_value}"));
       button = super + lb
     }.join
     wrapper = @template.content_tag(:div,
@@ -124,7 +124,7 @@ class FancyFormBuilder < ActionView::Helpers::FormBuilder
       hint = options[:hint]
       if self.object.errors[attribute].blank?
         if self.object.class.validators_on(attribute).map(&:class).include? ActiveModel::Validations::PresenceValidator
-          hint = hint.blank? ? "Required" : @template.raw("#{hint}<hr />Required")
+          hint = hint.blank? ? I18n.t("app.form.required") : @template.raw("#{hint}<hr />#{I18n.t("app.form.required")}")
         end
         hint.blank? ? "" : @template.content_tag(:div, hint, :class  => "tooltip", "data-ref"  => attribute.to_s, "data-class" => "tooltip")
       else

@@ -1,0 +1,11 @@
+en:
+  views:
+    budgets:
+      index:
+        header: "Budgets"
+      budget_table:
+        contact: "Contact"
+        debts: "Debts"
+        loans: "Loans"
+        total: "Total"
+        paid: "Paid"

@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      debt: "Deuda"
+    attributes:
+      debt:
+        amount: "Cantidad"
+        kind: "Tipo"
+        kinds:
+          debt: "Deuda"
+          loan: "Préstamo"
+        paid: "Pagado"
+        date: "Fecha"
+        note: "Nota"

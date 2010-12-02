@@ -1,0 +1,14 @@
+es:
+  activerecord:
+    models:
+      user: "Usuario"
+    attributes:
+      user:
+        email: "Email"
+        first_name: "Nombre"
+        last_name: "Apellidos"
+        password: "Password"
+        password_confirmation: "Confirmación del password"
+        remember_me: "Recuerdame"
+        locale: "Lenguaje"
+

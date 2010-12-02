@@ -2,11 +2,11 @@
              :builder => FancyFormBuilder,
              :html    => { :class => %(form) }) do |f| %>
   <%= f.form_error %>
-  <%= f.radio_button :kind, ["debt", "loan"], :hint => "Select Debt if you owe money. Loan if you lend money to some contact.", :label => "Type" %>
+  <%= f.radio_button :kind, ["debt", "loan"], :hint => t("views.debts.form.hints.kind"), :label => t("activerecord.attributes.debt.kind") %>
   <% budgets_array = current_user.budgets.all.map { |b| [b.contact.full_name, b.id] } -%>
-  <%= f.select :budget_id, budgets_array, :label => "Contact", :hint => "The person who owes or lends money to you" %>
+  <%= f.select :budget_id, budgets_array, :label => t("activerecord.models.contact"), :hint => t("views.debts.form.hints.contact") %>
   <%= f.text_field :amount %>
   <%= f.text_field :date, 'data-effect' => 'datepicker', :tooltip => false %>
   <%= f.text_area :note %>
-  <%= f.submit "Save", :cancel => link_to("cancel", budgets_path) %>
+  <%= f.submit t("app.form.submit"), :cancel => link_to(t("app.form.cancel"), budgets_path) %>
 <% end -%>

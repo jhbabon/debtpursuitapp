@@ -1,0 +1,34 @@
+en:
+  app:
+    user_info:
+      settings: "Settings"
+      logout: "Logout"
+    main_nav:
+      home: "Home"
+      contacts: "Contacts"
+      budgets: "Budgets"
+    sub_nav:
+      more_options: "More options"
+    links:
+      new_debt: "New debt"
+      new_contact: "New contact"
+      edit: "Edit"
+      edit_this_contact: "Edit this contact"
+      delete: "Delete"
+      delete_this_contact: "Delete this contact"
+      see_more: "See more"
+      paid: "Paid"
+      unpaid: "Not paid"
+      see_all_contacts: "See all contacts"
+      see_all_budgets: "See all budgets"
+    form:
+      submit: "Save"
+      cancel: "cancel"
+      required: "Required"
+    actions:
+      confirmation: "Are you sure?"
+    footer:
+      license: "License"
+      about: "About"
+      code_name: "Code name"
+      version: "Version"

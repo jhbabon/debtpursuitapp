@@ -1,7 +1,7 @@
 <% controller_name = object.class.to_s.pluralize.downcase -%>
 <% id = object.to_param -%>
 <% if object.paid? -%>
-  <%= button_to "Not pay", { :controller => "#{controller_name}" , :action => "unpay", :id => id }, :method => :put %>
+  <%= button_to t("app.links.unpaid"), { :controller => "#{controller_name}" , :action => "unpay", :id => id }, :method => :put %>
 <% else -%>
-  <%= button_to "Pay", { :controller => "#{controller_name}" , :action => "pay", :id => id }, :method => :put %>
+  <%= button_to t("app.links.paid"), { :controller => "#{controller_name}" , :action => "pay", :id => id }, :method => :put %>
 <% end -%>

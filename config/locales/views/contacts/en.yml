@@ -1,0 +1,11 @@
+en:
+  views:
+    contacts:
+      index:
+        header: "Contacts"
+      new:
+        header: "Create new contact"
+      edit:
+        header: "Edit this contact"
+      show:
+        header: "Latests debts"

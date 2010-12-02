@@ -10,7 +10,7 @@
       &nbsp;
     </div>
     <header class="elevencol last">
-      <h1>Latest debts</h1>
+    <h1><%= t "views.home.index.header" %></h1>
     </header>
   </div>
   <section>
@@ -19,19 +19,19 @@
         &nbsp;
       </div>
       <div class="twocol">
-        <h4>Date</h4>
+        <h4><%= t "views.home.index.table.date" %></h4>
       </div>
       <div class="threecol">
-        <h4>Contact</h4>
+        <h4><%= t "views.home.index.table.contact" %></h4>
       </div>
       <div class="twocol text_right">
-        <h4>Amount</h4>
+        <h4><%= t "views.home.index.table.amount" %></h4>
       </div>
       <div class="onecol">
-        <h4>Type</h4>
+        <h4><%= t "views.home.index.table.type" %></h4>
       </div>
       <div class="onecol">
-        <h4>Paid</h4>
+        <h4><%= t "views.home.index.table.paid" %></h4>
       </div>
       <div class="twocol last">
         &nbsp;
@@ -44,22 +44,22 @@
           &nbsp;
         </div>
         <div class="twocol">
-          <%= debt.date %>
+          <%= l debt.date %>
         </div>
         <div class="threecol">
           <%= debt.budget.contact.full_name %>
         </div>
         <div class="twocol text_right">
-          <%= mark_amount(currency(debt.amount)) %>
+          <%= mark_amount(number_to_currency(debt.amount)) %>
         </div>
         <div class="onecol">
-          <%= debt.kind.humanize %>
+          <%= t "activerecord.attributes.debt.kinds.#{debt.kind}" %>
         </div>
         <div class="onecol">
           <%= boolean_to_string debt.paid? %>
         </div>
         <div class="twocol last">
-          <%= link_to "See more", debt.budget.contact, :class => "button main" %>
+          <%= link_to t("app.links.see_more"), debt.budget.contact, :class => "button main" %>
         </div>
       </div>
       <%= render :partial => 'budgets/budget_spacer' %>

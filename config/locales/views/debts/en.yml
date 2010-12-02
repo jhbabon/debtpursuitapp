@@ -1,0 +1,11 @@
+en:
+  views:
+    debts:
+      new:
+        header: "Create new debt"
+      edit:
+        header: "Edit this debt"
+      form:
+        hints:
+          kind: "Select Debt if you owe money. Loan if you lend money to some contact."
+          contact: "The person who owes or lends money to you"

@@ -37,3 +37,17 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+
+    views:
+      registrations:
+        edit:
+          header: "Edit user settings"
+          form:
+            labels:
+              password: "New password"
+              password_confirmation: "New password confirmation"
+            hints:
+              password_confirmation: "Rewrite the new password"
+          unhappy: "Unhappy?"
+          links:
+            cancel_account: "Cancel account"

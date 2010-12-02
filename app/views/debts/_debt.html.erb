@@ -3,21 +3,21 @@
     &nbsp;
   </div>
   <div class="twocol">
-    <%= debt.date %>
+    <%= l debt.date %>
   </div>
   <div class="twocol text_right">
-    <%= mark_amount(currency(debt.amount)) %>
+    <%= mark_amount(number_to_currency(debt.amount)) %>
   </div>
   <div class="twocol">
-    <%= debt.kind.humanize %>
+    <%= t "activerecord.attributes.debt.kinds.#{debt.kind}" %>
   </div>
   <div class="onecol">
     <%= boolean_to_string debt.paid? %>
   </div>
   <div class="threecol">
     <%= render :partial => 'shared/pay_button', :locals => { :object => debt } %>
-    <%= link_to "Edit", edit_debt_path(debt), :class => "button" %>
-    <%= link_to "Delete", debt, :confirm => "Are you sure?", :method => :delete, :class => "button delete" %>
+    <%= link_to t("app.links.edit"), edit_debt_path(debt), :class => "button" %>
+    <%= link_to t("app.links.delete"), debt, :confirm => t("app.actions.confirmation"), :method => :delete, :class => "button delete" %>
   </div>
   <div class="onecol last">
     &nbsp;

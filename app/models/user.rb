@@ -1,14 +1,16 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  LOCALES = %w(es en)
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name
+                  :first_name, :last_name, :locale
 
   validates_presence_of :first_name, :last_name
+  validates_inclusion_of :locale, :in => self::LOCALES
 
   has_many :contacts
   has_many :budgets

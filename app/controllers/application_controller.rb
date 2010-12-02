@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_current_tab
   before_filter :authenticate_user!
+  before_filter :set_locale
 
   layout :layout_by_resource
 
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
   # http://rpheath.com/posts/304-tabbed-navigation-in-rails-refactored
   def set_current_tab
     @current_tab ||= controller_name.to_sym
+  end
+
+  def set_locale
+    I18n.locale = anybody_signed_in? ? current_user.locale : "en"
   end
 
   def layout_by_resource

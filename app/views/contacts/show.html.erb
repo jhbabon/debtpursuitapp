@@ -1,9 +1,9 @@
 <% content_for :subnavigation do -%>
   <div class="elevencol last">
-    <%= subnavigation link_to("See all contacts", contacts_path),
+    <%= subnavigation link_to(t("app.links.see_all_contacts"), contacts_path),
                       :new_debt,
-                      link_to("Edit this contact", edit_contact_path(@contact)),
-                      link_to("Delete this contact", @contact, :confirm => "Are you sure?", :method => :delete, :class => "delete") %>
+                      link_to(t("app.links.edit_this_contact"), edit_contact_path(@contact)),
+                      link_to(t("app.links.delete_this_contact"), @contact, :confirm => t("app.actions.confirmation"), :method => :delete, :class => "delete") %>
   </div>
 <% end -%>
 
@@ -37,7 +37,7 @@
     </div>
     <div class="elevencol last">
       <header>
-        <h2>Latest debts</h2>
+      <h2><%= t "views.contacts.show.header" %></h2>
       </header>
     </div>
   </div>
@@ -46,16 +46,16 @@
       &nbsp;
     </div>
     <div class="twocol">
-      <h4>Date</h4>
+      <h4><%= t "activerecord.attributes.debt.date" %></h4>
     </div>
     <div class="twocol text_right">
-      <h4>Amount</h4>
+      <h4><%= t "activerecord.attributes.debt.amount" %></h4>
     </div>
     <div class="twocol">
-      <h4>Type</h4>
+      <h4><%= t "activerecord.attributes.debt.kind" %></h4>
     </div>
     <div class="onecol">
-      <h4>Paid</h4>
+      <h4><%= t "activerecord.attributes.debt.paid" %></h4>
     </div>
     <div class="fourcol last">
       &nbsp;
