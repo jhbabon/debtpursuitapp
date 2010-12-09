@@ -54,8 +54,8 @@ class DebtTest < ActiveSupport::TestCase
 
   test "should get debts from user" do
     user = Factory.create(:user)
-    budget1 = Factory.create(:budget, :user => user)
-    budget2 = Factory.create(:budget, :user => user)
+    budget1 = Factory.create(:contact, :user => user).budget
+    budget2 = Factory.create(:contact, :user => user).budget
     1.upto(2) { Factory.create(:debt, :budget => budget1) }
     1.upto(2) { Factory.create(:debt, :budget => budget2) }
     Factory.create(:debt)

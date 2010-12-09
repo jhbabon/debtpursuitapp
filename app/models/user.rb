@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :locale, :in => self::LOCALES
 
   has_many :contacts
-  has_many :budgets
+  has_many :budgets, :through => :contacts
 
   def full_name
     "#{first_name} #{last_name}"

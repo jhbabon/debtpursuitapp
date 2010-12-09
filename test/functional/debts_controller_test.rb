@@ -4,7 +4,7 @@ class DebtsControllerTest < ActionController::TestCase
   setup do
     @user = Factory.create(:user)
     @contact = Factory.create(:contact, :user => @user)
-    @budget = Factory.create(:budget, :user => @user, :contact => @contact)
+    @budget = @contact.budget
     @debt = Factory.create(:debt, :budget => @budget)
     sign_in @user
   end

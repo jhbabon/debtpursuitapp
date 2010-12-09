@@ -14,16 +14,16 @@ class AbilityTest < ActiveSupport::TestCase
     user = Factory.create(:user)
     ability = Ability.new(user)
 
-    assert ability.can? :read, Factory.build(:budget, :user => user)
-    assert ability.can? :update, Factory.build(:budget, :user => user)
-    assert ability.can? :destroy, Factory.build(:budget, :user => user)
-    assert ability.can? :pay, Factory.build(:budget, :user => user)
-    assert ability.can? :unpay, Factory.build(:budget, :user => user)
-    assert ability.cannot? :read, Factory.build(:budget)
-    assert ability.cannot? :update, Factory.build(:budget)
-    assert ability.cannot? :destroy, Factory.build(:budget)
-    assert ability.cannot? :pay, Factory.build(:budget)
-    assert ability.cannot? :unpay, Factory.build(:budget)
+    assert ability.can? :read, Factory.create(:contact, :user => user).budget
+    assert ability.can? :update, Factory.create(:contact, :user => user).budget
+    assert ability.can? :destroy, Factory.create(:contact, :user => user).budget
+    assert ability.can? :pay, Factory.create(:contact, :user => user).budget
+    assert ability.can? :unpay, Factory.create(:contact, :user => user).budget
+    assert ability.cannot? :read, Factory.create(:contact).budget
+    assert ability.cannot? :update, Factory.create(:contact).budget
+    assert ability.cannot? :destroy, Factory.create(:contact).budget
+    assert ability.cannot? :pay, Factory.create(:contact).budget
+    assert ability.cannot? :unpay, Factory.create(:contact).budget
   end
 
   test "user can only read, update and destroy contacts which he owns" do
@@ -42,15 +42,15 @@ class AbilityTest < ActiveSupport::TestCase
     user = Factory.create(:user)
     ability = Ability.new(user)
 
-    assert ability.can? :read, Factory.build(:debt, :budget => Factory.create(:budget, :user => user))
-    assert ability.can? :update, Factory.build(:debt, :budget => Factory.create(:budget, :user => user))
-    assert ability.can? :destroy, Factory.build(:debt, :budget => Factory.create(:budget, :user => user))
-    assert ability.can? :pay, Factory.build(:debt, :budget => Factory.create(:budget, :user => user))
-    assert ability.can? :unpay, Factory.build(:debt, :budget => Factory.create(:budget, :user => user))
-    assert ability.cannot? :read, Factory.build(:debt, :budget => Factory.create(:budget))
-    assert ability.cannot? :update, Factory.build(:debt, :budget => Factory.create(:budget))
-    assert ability.cannot? :destroy, Factory.build(:debt, :budget => Factory.create(:budget))
-    assert ability.cannot? :pay, Factory.build(:debt, :budget => Factory.create(:budget))
-    assert ability.cannot? :unpay, Factory.build(:debt, :budget => Factory.create(:budget))
+    assert ability.can? :read, Factory.build(:debt, :budget => Factory.create(:contact, :user => user).budget)
+    assert ability.can? :update, Factory.build(:debt, :budget => Factory.create(:contact, :user => user).budget)
+    assert ability.can? :destroy, Factory.build(:debt, :budget => Factory.create(:contact, :user => user).budget)
+    assert ability.can? :pay, Factory.build(:debt, :budget => Factory.create(:contact, :user => user).budget)
+    assert ability.can? :unpay, Factory.build(:debt, :budget => Factory.create(:contact, :user => user).budget)
+    assert ability.cannot? :read, Factory.build(:debt, :budget => Factory.create(:contact).budget)
+    assert ability.cannot? :update, Factory.build(:debt, :budget => Factory.create(:contact).budget)
+    assert ability.cannot? :destroy, Factory.build(:debt, :budget => Factory.create(:contact).budget)
+    assert ability.cannot? :pay, Factory.build(:debt, :budget => Factory.create(:contact).budget)
+    assert ability.cannot? :unpay, Factory.build(:debt, :budget => Factory.create(:contact).budget)
   end
 end

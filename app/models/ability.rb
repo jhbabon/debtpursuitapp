@@ -7,9 +7,11 @@ class Ability
 
     can :create, :all
     can [:read, :update, :destroy], Contact, :user_id => user.id
-    can [:pay, :unpay, :read, :update, :destroy], Budget, :user_id => user.id
+    can [:pay, :unpay, :read, :update, :destroy], Budget do |budget|
+      budget.user.id == user.id
+    end
     can [:pay, :unpay, :read, :update, :destroy], Debt do |debt|
-      debt.budget.user_id == user.id
+      debt.budget.user.id == user.id
     end
   end
 end

@@ -1,6 +1,6 @@
 class Budget < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :contact
+  has_one :contact, :dependent => :destroy
+  has_one :user, :through => :contact
   has_many :debts
 
   def paid=(value)
