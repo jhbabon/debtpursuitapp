@@ -1,10 +1,23 @@
 es:
   views:
     debts:
+      index:
+        header: "Deudas"
+      show:
+        header: "Información de la deuda"
+        debtor: "¿Quién debe dinero?"
+        lender: "¿Quién dejó el dinero?"
+        date: "¿Desde cuándo?"
       new:
         header: "Crear nueva deuda"
       edit:
         header: "Editar esta deuda"
+      info:
+        debt: "Debes %{amount} a %{contact}"
+        loan: "%{contact} te debe %{amount}"
+      state:
+        paid: "Pagada"
+        unpaid: "Sin pagar"
       form:
         hints:
           kind: "Selecciona Deuda si debes dinero. Préstamo si has dejado dinero a alguien"

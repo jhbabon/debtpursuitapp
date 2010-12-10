@@ -1,40 +1,26 @@
 <% content_for :subnavigation do -%>
-  <div class="elevencol last">
+  <div class="grid_12">
     <%= subnavigation :new_contact %>
   </div>
+  <%= render 'shared/clear' %>
 <% end -%>
 
-<header class="container">
-  <div class="row">
-    <div class="onecol">
-      &nbsp;
-    </div>
-    <div class="elevencol last">
-      <h1><%= t "views.contacts.index.header" %></h1>
-    </div>
-  </div>
+<header class="grid_12">
+  <h1><%= t "views.contacts.index.header" %></h1>
 </header>
+<%= render 'shared/clear' %>
 <section>
-  <% @contacts.each_slice(2) do |cols| -%>
-    <div class="row">
-      <%= content_tag :div, raw("&nbsp;"), :class => "onecol" %>
-      <% cols.each do |contact| -%>
-        <%= render :partial => 'contact', :object => contact %>
-      <% end -%>
-      <% if cols.length < 2 -%>
-        <%= content_tag :div, raw("&nbsp;"), :class => "sixcol last" %>
-      <% else -%>
-        <%= content_tag :div, raw("&nbsp;"), :class => "onecol last" %>
-      <% end -%>
-    </div>
-    <%= render :partial => "debts/debt_spacer" %>
+  <% @contacts.each_slice(3) do |cols| -%>
+    <% cols.each do |contact| -%>
+      <%= render contact %>
+    <% end -%>
+    <%= render "shared/spacer" %>
   <% end -%>
-  <div class="row">
-    <div class="onecol">
-      &nbsp;
-    </div>
-    <div class="elevencol last">
-      <%= will_paginate @contacts %>
-    </div>
-  </div>
 </section>
+<%= render 'shared/clear' %>
+<footer>
+  <div class="grid_12">
+    <%= will_paginate @contacts %>
+  </div>
+  <%= render "shared/clear" %>
+</footer>

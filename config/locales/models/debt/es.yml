@@ -12,3 +12,4 @@ es:
         paid: "Pagado"
         date: "Fecha"
         note: "Nota"
+        state: "Estado"

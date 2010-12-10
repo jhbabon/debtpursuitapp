@@ -8,5 +8,6 @@
   <%= f.text_field :amount %>
   <%= f.text_field :date, 'data-effect' => 'datepicker', :tooltip => false %>
   <%= f.text_area :note %>
-  <%= f.submit t("app.form.submit"), :cancel => link_to(t("app.form.cancel"), budgets_path) %>
+  <%# TODO: cancel link to debts/index %>
+  <%= f.submit t("app.form.submit"), :cancel => link_to(t("app.form.cancel"), contacts_path) %>
 <% end -%>

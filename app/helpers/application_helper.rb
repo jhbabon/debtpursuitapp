@@ -40,6 +40,6 @@ module ApplicationHelper
 
   def mark_amount(amount)
     css = amount.to_s.include?("-") ? "debt" : "loan"
-    content_tag(:span, amount, :class => css)
+    content_tag(:span, amount.gsub(/-/, ''), :class => css)
   end
 end

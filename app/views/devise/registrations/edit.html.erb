@@ -1,31 +1,26 @@
-<section class="container">
-  <div class="row">
-    <div class="onecol">
-      &nbsp;
-    </div>
-    <div class="elevencol last">
-      <header>
-      <h1><%= t "devise.views.registrations.edit.header" %></h1>
-      </header>
-      <section>
-        <%= form_for(resource,
-                     :as   => resource_name,
-                     :builder => FancyFormBuilder,
-                     :url  => registration_path(resource_name),
-                     :html => { :method => :put,
-                                :class  => %(form)}) do |f| %>
-          <%= f.form_error %>
-          <%= f.select :locale, [["English", "en"], ["Español", "es"]] %>
-          <%= f.text_field :email %>
-          <%= f.text_field :first_name %>
-          <%= f.text_field :last_name %>
-          <%= f.password_field :password, :label => t("devise.views.registrations.edit.form.labels.password") %>
-          <%= f.password_field :password_confirmation, :label => t("devise.views.registrations.edit.form.labels.password_confirmation"), :hint => t("devise.views.registrations.edit.form.hints.password_confirmation") %>
-          <%= f.submit t("app.form.submit"), :cancel => link_to(t("app.form.cancel"), home_index_path) %>
-        <% end %>
-      </section>
-      <footer>
-        <p><%= t "devise.views.registrations.edit.unhappy" %> <%= link_to t("devise.views.registrations.edit.links.cancel_account"), registration_path(resource_name), :confirm => t("app.actions.confirmation"), :method => :delete %>.</p>
-      </footer>
-    </div>
-</section>
+<div class="grid_12">
+  <header>
+    <h1><%= t "devise.views.registrations.edit.header" %></h1>
+  </header>
+  <section>
+    <%= form_for(resource,
+                 :as   => resource_name,
+                 :builder => FancyFormBuilder,
+                 :url  => registration_path(resource_name),
+                 :html => { :method => :put,
+                            :class  => %(form)}) do |f| %>
+      <%= f.form_error %>
+      <%= f.select :locale, [["English", "en"], ["Español", "es"]] %>
+      <%= f.text_field :email %>
+      <%= f.text_field :first_name %>
+      <%= f.text_field :last_name %>
+      <%= f.password_field :password, :label => t("devise.views.registrations.edit.form.labels.password") %>
+      <%= f.password_field :password_confirmation, :label => t("devise.views.registrations.edit.form.labels.password_confirmation"), :hint => t("devise.views.registrations.edit.form.hints.password_confirmation") %>
+      <%= f.submit t("app.form.submit"), :cancel => link_to(t("app.form.cancel"), home_index_path) %>
+    <% end %>
+  </section>
+  <footer>
+    <p><%= t "devise.views.registrations.edit.unhappy" %> <%= link_to t("devise.views.registrations.edit.links.cancel_account"), registration_path(resource_name), :confirm => t("app.actions.confirmation"), :method => :delete %>.</p>
+  </footer>
+</div>
+<%= render 'shared/clear' %>

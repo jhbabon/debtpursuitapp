@@ -15,6 +15,7 @@ class DebtTest < ActiveSupport::TestCase
     assert_equal 9.99, debt.amount.to_f
   end
 
+  # TODO: delete this feature
   test "should be negative if is a debt" do
     debt = Factory.build(:debt, :amount => "9,99", :kind => "debt")
     assert_equal -9.99, debt.amount.to_f

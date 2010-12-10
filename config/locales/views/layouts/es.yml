@@ -3,10 +3,11 @@ es:
     user_info:
       settings: "Preferencias"
       logout: "Salir"
+    you: "Tú"
     main_nav:
       home: "Inicio"
       contacts: "Contactos"
-      budgets: "Presupuestos"
+      debts: "Deudas"
     sub_nav:
       more_options: "Más opciones"
     links:
@@ -14,13 +15,15 @@ es:
       new_contact: "Nuevo contacto"
       edit: "Editar"
       edit_this_contact: "Editar este contacto"
+      edit_this_debt: "Editar esta deuda"
       delete: "Eliminar"
       delete_this_contact: "Eliminar este contacto"
+      delete_this_debt: "Eliminar esta deuda"
       see_more: "Ver más"
-      paid: "Pagado"
-      unpaid: "No pagado"
+      paid: "Marcar como pagada"
+      unpaid: "Marcar como no pagada"
       see_all_contacts: "Ver todos los contactos"
-      see_all_budgets: "Ver todos los préstamos"
+      see_all_debts: "Ver todas las deudas"
     form:
       submit: "Guardar"
       cancel: "cancelar"

@@ -1,10 +1,9 @@
-<header class="header container">
-  <div class="row">
-    <div class="threecol logo">
-      <h1>Debt<span class="light">Pursuit</span></h1>
-    </div>
-    <div class="ninecol last">
-      <%= navigation :home, :budgets, :contacts %>
-    </div>
+<header class="header">
+  <div class="grid_3 logo">
+    <h1>Debt<span class="light">Pursuit</span></h1>
+  </div>
+  <div class="grid_9">
+    <%= navigation :home, :contacts, :debts %>
   </div>
 </header>
+<%= render 'shared/clear' %>

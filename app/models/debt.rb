@@ -11,6 +11,7 @@ class Debt < ActiveRecord::Base
 
   scope :owned_by, proc { |user| joins(:budget => :contact).where("contacts.user_id = ?", user.id) }
   scope :recent, limit(5).order("updated_at DESC")
+  scope :uncleared, where("paid = ?", false)
 
   self::KINDS.each do |method|
     src = <<-END_SRC

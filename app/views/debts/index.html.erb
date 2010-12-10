@@ -1,12 +1,12 @@
 <% content_for :subnavigation do -%>
   <div class="grid_12">
-    <%= subnavigation :new_debt, :new_contact %>
+    <%= subnavigation :new_debt %>
   </div>
   <%= render 'shared/clear' %>
 <% end -%>
 
 <header class="grid_12">
-  <h1><%= t "views.home.index.header" %></h1>
+  <h1><%= t "views.debts.index.header" %></h1>
 </header>
 <%= render 'shared/clear' %>
 <section>
@@ -19,3 +19,9 @@
   </div>
 </section>
 <%= render 'shared/clear' %>
+<footer>
+  <div class="grid_12">
+    <%= will_paginate @debts %>
+  </div>
+  <%= render "shared/clear" %>
+</footer>

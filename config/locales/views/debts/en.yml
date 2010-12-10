@@ -1,10 +1,23 @@
 en:
   views:
     debts:
+      index:
+        header: "Debts"
+      show:
+        header: "Debt's info"
+        debtor: "Who owes money?"
+        lender: "Who lent money?"
+        date: "Since when?"
       new:
         header: "Create new debt"
       edit:
         header: "Edit this debt"
+      info:
+        debt: "You owe %{contact} %{amount}"
+        loan: "%{contact} owes you %{amount}"
+      state:
+        paid: "Paid"
+        unpaid: "Not paid"
       form:
         hints:
           kind: "Select Debt if you owe money. Loan if you lend money to some contact."

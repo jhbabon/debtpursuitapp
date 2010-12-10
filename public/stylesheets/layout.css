@@ -1,4 +1,3 @@
-/* ===[ Layout for desktop version ]=== */
 @font-face {
   font-family: Chunkfive;
   src: url('../fonts/Chunkfive.otf');
@@ -6,14 +5,6 @@
 @font-face {
   font-family: Yanone-Regular;
   src: url('../fonts/YanoneKaffeesatz-Regular.otf');
-}
-@font-face {
-  font-family: Yanone-Bold;
-  src: url('../fonts/YanoneKaffeesatz-Bold.otf');
-}
-@font-face {
-  font-family: Yanone-Thin;
-  src: url('../fonts/YanoneKaffeesatz-Thin.otf');
 }
 @font-face {
   font-family: Yanone-Light;
@@ -25,16 +16,14 @@ footer,
 header,
 hgroup,
 nav,
-section {  display: block }
+section { display: block; }
 body {
   background-color: #323232;
   color: #2B2B2B;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 24px; /* Changing this will break the baseline grid. */
-  -webkit-text-size-adjust: none; /* Stops the iPhone scalling type up */
+  font: 13px/1.5 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+  line-height: 24px;
 }
-small {  font-size: 0.65em }
+small { font-size: 0.65em; }
 a {
   text-decoration: none;
   color: #60A5FF;
@@ -45,41 +34,31 @@ a:hover {
   border-color: #FFF;
   background-color: #60A5FF;
 }
-a img {
-  display: block; /* Stops image links getting text link styles */
-}
-img {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
+h1,
+h2,
+h3,
 p,
 ul,
 ol,
 blockquote {
-  margin-bottom: 24px; /* Changing this will break the baseline grid. */
+  margin-bottom: 20px;
 }
-li {  margin-bottom: 6px }
+li { margin-bottom: 6px; }
 h1,
 h2,
 h3,
-h4 {  font-family: Yanone-Regular, 'Helvetica Neue', Helvetica, Arial, sans }
-h1,
-h2,
-h3 {
-  margin-bottom: 24px; /* Changing this will break the baseline grid. */
-}
+h4 { font-family: Yanone-Regular, 'Helvetica Neue', Helvetica, Arial, sans; }
 h1 {
   font-size: 34px;
-  line-height: 36px; /* Changing this will break the baseline grid. */
+  line-height: 36px;
 }
-h2 {  font-size: 24px }
-h3 {  font-size: 20px }
-h4 {  font-size: 20px }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+h4 { font-size: 20px; }
 .alert {
   text-align: center;
-  width: 310px;
+  width: 95%;
+  max-width: 310px !important;
   margin-bottom: 10px;
   padding: 5px;
   border: 1px solid #921308;
@@ -93,26 +72,26 @@ h4 {  font-size: 20px }
  .logo h1 {
    font-family: Chunkfive;
    color: #FFF;
- }
-  .logo h1 .light {  color: #39C }
-.login {  margin: 150px 0 50px 0 }
- .login .logo {  text-align: center }
+}
+  .logo h1 .light { color: #39C; }
+.login { margin: 150px 0 50px 0; }
+ .login .logo { text-align: center; }
  .login .content {
    background-color: #E6E6E6;
    -webkit-border-radius: 8px;
    -moz-border-radius: 8px;
    border-radius: 8px;
    padding: 10px;
- }
+}
 .form .fieldset {
   position: relative;
   margin-bottom: 8px;
 }
-.form .label {  font-size: 16px }
+.form .label { font-size: 16px; }
 .form .label.overlay,
 .form .radio_buttons .label,
-.form .input {  font-size: 14px }
-.form .radio_buttons .label {  margin-right: 15px }
+.form .input { font-size: 14px; }
+.form .radio_buttons .label { margin-right: 15px; }
 .form .label.overlay {
   position: absolute;
   z-index: 1;
@@ -120,7 +99,7 @@ h4 {  font-size: 20px }
   padding-left: 12px;
   color: #919191;
 }
-.form .label.overlay.focus {  color: #D5D5D5 }
+.form .label.overlay.focus { color: #D5D5D5; }
 .form .input {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -136,9 +115,9 @@ h4 {  font-size: 20px }
   position: relative;
   z-index: 10;
 }
-.form .input.error {  border: 1px solid #921308 }
-.form .input:focus {  border: 1px solid #39C }
-.form textarea.input.overlay {  height: 100px }
+.form .input.error { border: 1px solid #921308; }
+.form .input:focus { border: 1px solid #39C; }
+.form textarea.input.overlay { height: 100px; }
 .form .radio_buttons {
   display: inline-block;
   width: auto;
@@ -163,16 +142,16 @@ h4 {  font-size: 20px }
   -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
   font-weight: 500;
 }
- .form .tooltip hr {  border-color: #E1CB4E }
+ .form .tooltip hr { border-color: #E1CB4E; }
 .form .tooltip.error {
   border: 2px solid #921308;
   background-color: #FDDCDC;
   color: #921308;
 }
- .form .tooltip.error hr {  border-color: #921308 }
-.button_to {  display: inline-block }
+ .form .tooltip.error hr { border-color: #921308; }
+.button_to { display: inline-block; }
 a.button,
-a.button:hover {  border: none }
+a.button:hover { border: none; }
 .button_to input[type="submit"],
 .button_to input[type="submit"]:visited,
 .button,
@@ -202,11 +181,13 @@ a.button:hover {  border: none }
   font-weight: normal;
   font-size: 13px;
 }
+.button_to input[type="submit"],
+.button_to input[type="submit"]:visited { font-size: 11px; }
 .button:hover {
   background-color: #111;
   color: #fff;
 }
-.button:active {  top: 1px }
+.button:active { top: 1px; }
 .large.button,
 .large.button:visited {
   font-size: 14px;
@@ -215,9 +196,9 @@ a.button:hover {  border: none }
 .button_to input[type="submit"],
 .button_to input[type="submit"]:visited,
 .main.button,
-.main.button:visited {  background-color: #2DAEBF }
+.main.button:visited { background-color: #2DAEBF; }
 .button_to input[type="submit"]:hover,
-.main.button:hover {  background-color: #007D9A }
+.main.button:hover { background-color: #007D9A; }
 .user_info {
   text-align: right;
   color: #FFF;
@@ -229,7 +210,7 @@ a.button:hover {  border: none }
   padding: 0 10px;
   border-right: 1px solid;
 }
-.nav ul li:last-child {  border-right: none }
+.nav ul li:last-child { border-right: none; }
 a.delete:hover,
 a.logout:hover {
   color: #FFF;
@@ -249,13 +230,13 @@ a.logout:hover {
    color: #919191;
    border: none;
    padding-bottom: 7px;
- }
+}
  .main_nav .tab a.selected,
  .main_nav .tab a:hover {
    color: #FFF;
    border-bottom: 2px solid #FFF;
    padding-bottom: 5px;
- }
+}
 dl.sub_nav {
   height: 35px;
   padding-top: 6px;
@@ -266,11 +247,11 @@ dl.sub_nav {
  dl.sub_nav dd {
    display: inline;
    float: left;
- }
+}
  dl.sub_nav dt {
    color: #888;
    font-weight: normal;
- }
+}
  dl.sub_nav dd a {
    margin-left: 6px;
    padding: 5px 12px;
@@ -279,12 +260,12 @@ dl.sub_nav {
    -webkit-border-radius: 12px;
    -moz-border-radius: 12px;
    border-radius: 12px;
- }
+}
 .layout {
   padding: 20px 0 30px 0;
   background-color: #E6E6E6;
 }
- .layout h1 {  text-shadow: 0 1px 1px #F7F7F7 }
+ .layout h1 { text-shadow: 0 1px 1px #F7F7F7; }
 .footer {
   margin-top: 1em;
   margin-bottom: 2em;
@@ -296,34 +277,59 @@ dl.sub_nav {
  .footer a {
    color: #777;
    border-bottom: 1px solid #777;
- }
+}
  .footer a:hover {
    background: transparent;
    color: #CCC;
    border-bottom: 1px solid #CCC;
- }
+}
  .footer .version_info {
    color: #CCC;
    text-align: right;
    width: auto;
- }
+}
 hr.recess {
   margin: 17px 0 18px;
   height: 0;
   clear: both;
-  /* border: 1px solid #007D9A;*/
   border-top: 1px solid #D5D5D5;
   border-bottom: 1px solid #F7F7F7;
+  width: auto;
 }
 .total_debt {
   font-size: 1.2em;
   font-weight: bold;
 }
-.debt {  color: #921308 }
-.loan {  color: #728207 }
+.debt, .state.unpaid { color: #921308; }
+.loan, .state.paid { color: #728207; }
 .budget,
-.debt_info {  min-height: 30px !important }
-.text_right {  text-align: right }
+.debt_info { min-height: 30px !important; }
+ .debt_info .date {
+   background-color: #D5D5D5;
+   padding: 8px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+ }
+ .debt_info .text.paid { color: #4D4D4D; }
+ .debt_data .amount.paid,
+ .debt_info .text.paid { text-decoration: line-through; }
+.debt_data { text-align: center; }
+ .debt_data .amount {
+   font-size: 1.6em;
+   background-color: #D5D5D5;
+   padding: 8px 0;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   width: auto;
+   margin-bottom: 10px;
+ }
+ .debt_data .state {
+   font-size: 1.1em;
+   margin-right: 5px;
+ }
+.text_right { text-align: right; }
 .pagination {
   text-align: center;
   margin-top: 20px;
@@ -331,23 +337,8 @@ hr.recess {
  .pagination span.disabled {
    display: inline-block;
    margin: 3px;
- }
+}
  .pagination span.disabled { color: #888; }
  .pagination span.current,
  .pagination span a { padding: 3px; }
   .pagination span a { border: none; }
-/* ===[ Layout for mobile version ]=== */
-/* @media handheld, only screen and (max-width: 767px) { 
-	*/
-	/* body { }
-}  */
-/* ===[ Provide higher res assets for iPhone 4 ]=== */
-/* @media only screen and (-webkit-min-device-pixel-ratio: 2) { 
-	*/
-
-	/* An example of how to override an image with one twice the size for iPhone 4. Specify the original pixel size with background-size.
-	.download {
-	  background: url(../img/downarrow@2x.png) no-repeat;
-	  background-size: 27px 28px;
-	}
-}  */

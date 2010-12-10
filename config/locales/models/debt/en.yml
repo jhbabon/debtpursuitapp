@@ -1,5 +1,7 @@
 en:
   activerecord:
+    models:
+      debt: "Debt"
     attributes:
       debt:
         amount: "Amount"
@@ -7,6 +9,7 @@ en:
         paid: "Paid"
         kind: "Type"
         note: "Note"
+        state: "State"
         kinds:
           debt: "Debt"
           loan: "Loan"

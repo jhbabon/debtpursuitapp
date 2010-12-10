@@ -1,13 +1,6 @@
 <% if flash[:alert] -%>
-  <div class="row">
-    <div class="threecol">
-      &nbsp;
-    </div>
-    <div class="sixcol last alert">
-      <%= flash[:alert] %>
-    </div>
-    <div class="threecol last">
-      &nbsp;
-    </div>
+  <div class="grid_6 prefix_3 suffix_3 alert">
+    <%= flash[:alert] %>
   </div>
+  <%= render 'shared/clear' %>
 <% end -%>

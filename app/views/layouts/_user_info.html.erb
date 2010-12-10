@@ -1,17 +1,14 @@
-<div class="container user_info">
-  <div class="row">
-    <nav class="nav twelvecol last">
-      <ul>
-        <li>
-          <%= current_user.full_name %>
-        </li>
-        <li>
-          <%= link_to t("app.user_info.settings"), edit_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to t("app.user_info.logout"), destroy_user_session_path, :class => "logout" %>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</div>
+<nav class="nav grid_12 user_info">
+  <ul>
+    <li>
+      <%= current_user.full_name %>
+    </li>
+    <li>
+      <%= link_to t("app.user_info.settings"), edit_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to t("app.user_info.logout"), destroy_user_session_path, :class => "logout" %>
+    </li>
+  </ul>
+</nav>
+<%= render "shared/clear" %>

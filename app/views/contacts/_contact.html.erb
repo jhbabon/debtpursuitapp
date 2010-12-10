@@ -1,19 +1,6 @@
-<div class="threecol">
+<div class="grid_4">
   <h2><%= contact.full_name %></h2>
   <h3><%= mail_to contact.email %></h3>
   <%= render :partial => 'shared/total_debt', :object => contact.budget.total %>
   <p><%= link_to t("app.links.see_more"), contact, :class => "button main" %></p>
-</div>
-<div class="onecol">
-  <ul>
-    <li>
-      <%= link_to t("app.links.edit"), edit_contact_path(contact), :class => "button" %>
-    </li>
-    <li>
-      <%= link_to t("app.links.delete"), contact, :confirm => t("app.actions.confirmation"), :method => :delete, :class => "button delete" %>
-    </li>
-  </ul>
-</div>
-<div class="onecol">
-  &nbsp;
 </div>

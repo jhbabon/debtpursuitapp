@@ -1,21 +1,16 @@
 <% content_for :subnavigation do -%>
-  <div class="elevencol last">
+  <div class="grid_12">
     <%= subnavigation link_to(t("app.links.see_all_contacts"), contacts_path), :new_contact %>
   </div>
+  <%= render 'shared/clear' %>
 <% end -%>
 
-<section class="container">
-  <div class="row">
-    <div class="onecol">
-      &nbsp;
-    </div>
-    <div class="elevencol last">
-      <header>
-        <h1><%= t "views.contacts.edit.header" %></h1>
-      </header>
-      <section>
-        <%= render :partial => 'form', :locals => { :contact => @contact } %>
-      </section>
-    </div>
-  </div>
-</section>
+<div class="grid_12">
+  <header>
+    <h1><%= t "views.contacts.edit.header" %></h1>
+  </header>
+  <section>
+    <%= render 'form', :contact => @contact %>
+  </section>
+</div>
+<%= render 'shared/clear' %>

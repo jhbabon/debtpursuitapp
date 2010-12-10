@@ -4,9 +4,22 @@ class DebtsControllerTest < ActionController::TestCase
   setup do
     @user = Factory.create(:user)
     @contact = Factory.create(:contact, :user => @user)
-    @budget = @contact.budget
-    @debt = Factory.create(:debt, :budget => @budget)
+    @debt = Factory.create(:debt, :budget => @contact.budget)
     sign_in @user
+  end
+
+  test "should get index" do
+    get :index
+
+    assert_response :success
+    assert_not_nil assigns(:debts)
+  end
+
+  test "should show debt" do
+    get :show, :id => @debt.to_param
+
+    assert_response :success
+    assert_not_nil assigns(:debt)
   end
 
   test "should get new" do
@@ -20,7 +33,7 @@ class DebtsControllerTest < ActionController::TestCase
                      [:created_at, :updated_at].include?(key)
                    }
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to debt_path(assigns(:debt))
   end
 
   test "should not create debt" do
@@ -43,7 +56,7 @@ class DebtsControllerTest < ActionController::TestCase
                     [:created_at, :updated_at].include?(key)
                   }
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to debt_path(assigns(:debt))
   end
 
   test "should not update debt" do
@@ -63,12 +76,12 @@ class DebtsControllerTest < ActionController::TestCase
   test "should pay debt" do
     put :pay, :id => @debt.to_param
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to debt_path(assigns(:debt))
   end
 
   test "should unpay debt" do
     put :unpay, :id => @debt.to_param
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to debt_path(assigns(:debt))
   end
 end

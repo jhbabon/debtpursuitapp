@@ -1,6 +1,13 @@
 class DebtsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @debts = Debt.owned_by(current_user).order("date DESC").paginate(:page => params[:page])
+  end
+
+  def show
+  end
+
   # GET /debts/new
   def new
     respond_to do |format|
@@ -17,7 +24,7 @@ class DebtsController < ApplicationController
     respond_to do |format|
       if @debt.save
         @contact = @debt.budget.contact
-        format.html { redirect_to(@contact) }
+        format.html { redirect_to(@debt) }
       else
         format.html { render :action => "new" }
       end
@@ -29,7 +36,7 @@ class DebtsController < ApplicationController
     respond_to do |format|
       if @debt.update_attributes(params[:debt])
         @contact = @debt.budget.contact
-        format.html { redirect_to(@contact) }
+        format.html { redirect_to(@debt) }
       else
         format.html { render :action => "edit" }
       end
@@ -62,7 +69,7 @@ class DebtsController < ApplicationController
     respond_to do |format|
       @debt.update_attributes({ :paid => value })
       @contact = @debt.budget.contact
-      format.html { redirect_to(@contact) }
+      format.html { redirect_to(@debt) }
     end
   end
 end
