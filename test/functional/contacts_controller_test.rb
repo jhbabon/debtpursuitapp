@@ -77,4 +77,10 @@ class ContactsControllerTest < ActionController::TestCase
 
     assert_redirected_to contacts_path
   end
+
+  test "should get select" do
+    get :select
+
+    assert_response :success
+  end
 end

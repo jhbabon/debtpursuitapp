@@ -1,0 +1,8 @@
+<h3><%= t "views.invitations.sidebar.header" %></h3>
+<ul>
+  <li>
+    <%= link_to raw("<span class='count'>#{current_user.received_invitations.count}</span> #{t("views.invitations.sidebar.link")}"),
+                invitations_path,
+                :class => "counter" %>
+  </li>
+</ul>

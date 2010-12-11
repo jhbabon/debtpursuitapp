@@ -2,25 +2,16 @@ require 'test_helper'
 
 class DebtTest < ActiveSupport::TestCase
   test "should ensure amount" do
-    debt = Factory.build(:debt, :amount => "9,99", :kind => "loan")
+    debt = Factory.build(:debt, :amount => "9,99")
     assert debt.valid?
     assert_equal 9.99, debt.amount.to_f
 
-    debt = Factory.build(:debt, :amount => "9'99", :kind => "loan")
+    debt = Factory.build(:debt, :amount => "9'99")
     assert debt.valid?
     assert_equal 9.99, debt.amount.to_f
 
-    debt = Factory.build(:debt, :amount => "9.99", :kind => "loan")
+    debt = Factory.build(:debt, :amount => "9.99")
     assert debt.valid?
-    assert_equal 9.99, debt.amount.to_f
-  end
-
-  # TODO: delete this feature
-  test "should be negative if is a debt" do
-    debt = Factory.build(:debt, :amount => "9,99", :kind => "debt")
-    assert_equal -9.99, debt.amount.to_f
-
-    debt = Factory.build(:debt, :amount => "9,99", :kind => "loan")
     assert_equal 9.99, debt.amount.to_f
   end
 
@@ -43,24 +34,80 @@ class DebtTest < ActiveSupport::TestCase
     assert !debt.paid?
   end
 
-  test "should know his kind" do
-    debt = Factory.create(:debt, :kind => "debt")
-    assert debt.debt?
-    assert !debt.loan?
-
-    debt.update_attributes({ :kind => "loan" })
-    assert !debt.debt?
-    assert debt.loan?
-  end
-
-  test "should get debts from user" do
+  test "should get debts from person" do
     user = Factory.create(:user)
-    budget1 = Factory.create(:contact, :user => user).budget
-    budget2 = Factory.create(:contact, :user => user).budget
-    1.upto(2) { Factory.create(:debt, :budget => budget1) }
-    1.upto(2) { Factory.create(:debt, :budget => budget2) }
+    1.upto(2) { Factory.create(:debt, :debtor => user) }
+    1.upto(2) { Factory.create(:debt, :lender => user) }
     Factory.create(:debt)
 
+    assert_equal 2, Debt.owed_by(user).count
+    assert_equal 2, Debt.lent_by(user).count
     assert_equal 4, Debt.owned_by(user).count
+
+    contact = Factory.create(:contact)
+    1.upto(2) { Factory.create(:debt, :debtor => contact) }
+    1.upto(2) { Factory.create(:debt, :lender => contact) }
+    Factory.create(:debt)
+
+    assert_equal 2, Debt.owed_by(contact).count
+    assert_equal 2, Debt.lent_by(contact).count
+    assert_equal 4, Debt.owned_by(contact).count
+  end
+
+  test "should get shared debts from persons" do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
+    contact = Factory.create(:contact)
+    1.upto(2) { Factory.create(:debt, :debtor => user1, :lender => user2) }
+    1.upto(2) { Factory.create(:debt, :lender => user1, :debtor => user2) }
+    Factory.create(:debt, :debtor => user1, :lender => contact)
+    Factory.create(:debt, :debtor => contact, :lender => user2)
+
+    assert_equal 4, Debt.shared_by(user1, user2).count
+    assert_equal 1, Debt.shared_by(user1, contact).count
+    assert_equal 1, Debt.shared_by(user2, contact).count
+  end
+
+  test "should get partner" do
+    user = Factory.create(:user)
+    contact = Factory.create(:contact)
+    debt = Factory.create(:debt, :debtor => user, :lender => contact)
+
+    assert_equal user, debt.partner(contact.proxy)
+    assert_equal contact.proxy, debt.partner(user)
+  end
+
+  test "should know his type" do
+    user = Factory.create(:user)
+    contact = Factory.create(:contact)
+    debt = Factory.create(:debt, :debtor => user, :lender => contact)
+
+    assert_equal 'debt', debt.type(user)
+    assert_equal 'loan', debt.type(contact.proxy)
+  end
+
+  test "should check if is debt or loan" do
+    user = Factory.create(:user)
+    contact = Factory.create(:contact)
+    debt = Factory.create(:debt, :debtor => user, :lender => contact)
+
+    assert debt.debt?(user)
+    assert debt.loan?(contact.proxy)
+  end
+
+  test "should get debtor and lender from his polymorphic id" do
+    debtor = Factory.create(:user)
+    lender = Factory.create(:contact)
+    debt = Factory.build(:debt,
+                         :debtor => nil,
+                         :lender => nil,
+                         :debtor_str => debtor.polymorphic_id,
+                         :lender_str => lender.polymorphic_id)
+
+    assert debt.valid?
+    assert_equal debtor, debt.debtor
+    assert_equal lender, debt.lender
+    assert_equal debtor.polymorphic_id, debt.debtor_str
+    assert_equal lender.polymorphic_id, debt.lender_str
   end
 end

@@ -9,3 +9,12 @@ en:
         header: "Edit this contact"
       show:
         header: "Latests debts"
+      select:
+        header: "Select the type of contact do you want to create"
+        personal_contact:
+          header: "Personal contact"
+          text: "A personal contact is a contact only for you. Nobody can see it. You can use it to control the debts from a person who don't use the application."
+          link: "Create your personal contact"
+        invitation:
+          header: "Invite another user to be your contact"
+          text: "You can invite another users to be your contacts and share the debts with them."

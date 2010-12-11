@@ -1,0 +1,16 @@
+es:
+  views:
+    invitations:
+      index:
+        header: "Invitaciones"
+      invitation:
+        text: "El usuario %{name} quiere compartir deudas contigo."
+        links:
+          accept: "Aceptar"
+          reject: "Rechazar"
+      sidebar:
+        header: "Invitaciones"
+        link: "Invitaciones para compartir deudas"
+      flash:
+        sended: "La invitación se ha enviado con éxito"
+        error: "No se pudo enviar la invitación"

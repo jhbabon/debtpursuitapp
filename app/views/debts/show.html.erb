@@ -16,10 +16,9 @@
 <section>
 <div class="grid_12">
   <div class="grid_6 alpha">
-    <% debtor = @debt.debt? ? "(#{t("app.you")}) #{current_user.full_name}" : link_to(@debt.budget.contact.full_name, @debt.budget.contact) -%>
-    <% lender = @debt.loan? ? "(#{t("app.you")}) #{current_user.full_name}" : link_to(@debt.budget.contact.full_name, @debt.budget.contact) -%>
-    <p><strong><%= t "views.debts.show.debtor" %>:</strong> <%= debtor %></p>
-    <p><strong><%= t "views.debts.show.lender" %>:</strong> <%= lender %></p>
+    <%# TODO: links to debtor and lender contacts  %>
+    <p><strong><%= t "views.debts.show.debtor" %>:</strong> <%= @debt.debtor.full_name %></p>
+    <p><strong><%= t "views.debts.show.lender" %>:</strong> <%= @debt.lender.full_name %></p>
     <p><strong><%= t "views.debts.show.date" %>:</strong> <%= l @debt.date %></p>
   </div>
   <div class="grid_2 suffix_4 omega debt_data">

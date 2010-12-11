@@ -1,6 +1,6 @@
 <% content_for :subnavigation do -%>
   <div class="grid_12">
-    <%# subnavigation %>
+    <%= subnavigation link_to(t("app.links.see_all_debts"), debts_path) %>
   </div>
   <%= render 'shared/clear' %>
 <% end -%>

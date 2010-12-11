@@ -19,6 +19,10 @@ en:
         paid: "Paid"
         unpaid: "Not paid"
       form:
+        labels:
+          debtor: "Who owes money?"
+          lender: "To who?"
+          amount: "How much?"
         hints:
           kind: "Select Debt if you owe money. Loan if you lend money to some contact."
           contact: "The person who owes or lends money to you"

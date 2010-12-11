@@ -1,0 +1,16 @@
+en:
+  views:
+    invitations:
+      index:
+        header: "Invitations"
+      invitation:
+        text: "The user %{name} wants to share debts with you."
+        links:
+          accept: "Accept"
+          reject: "Reject"
+      sidebar:
+        header: "Invitations"
+        link: "Invitations to share debts"
+      flash:
+        sended: "The invitation was successfully sended"
+        error: "The invitation couldn't send"

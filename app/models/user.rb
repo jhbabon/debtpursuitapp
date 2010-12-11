@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  include Person
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   LOCALES = %w(es en)
@@ -6,22 +7,25 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,
-                  :first_name, :last_name, :locale
+  attr_accessible :password, :password_confirmation, :remember_me, :locale,
+                  :email, :first_name, :last_name
 
   validates_presence_of :first_name, :last_name
   validates_inclusion_of :locale, :in => self::LOCALES
 
-  has_many :contacts
-  has_many :budgets, :through => :contacts
+  has_many :contacts, :dependent => :destroy
+  has_many :sent_invitations,
+           :foreign_key => "sender_id",
+           :class_name => "Invitation",
+           :dependent => :destroy
+  has_many :received_invitations,
+           :foreign_key => "receiver_id",
+           :class_name => "Invitation",
+           :dependent => :destroy
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
-
-  def total_debt
-    budgets.inject(0) { |total, budget| total += budget.total }
-  end
+  scope :search, proc { |q|
+    where("email LIKE :q OR first_name LIKE :q OR last_name LIKE :q OR first_name||' '||last_name LIKE :q", { :q => "%#{q}%" })
+  }
 
   def update_with_password(params={})
     if params[:password].blank?

@@ -1,0 +1,10 @@
+es:
+  views:
+    users:
+      search:
+        header: "Buscar usuarios"
+        links:
+          invitation: "Enviar invitación"
+        form:
+          placeholder: "Email, nombre, apellidos..."
+          submit: "Buscar"

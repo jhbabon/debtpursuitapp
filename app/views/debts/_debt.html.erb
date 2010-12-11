@@ -7,10 +7,10 @@
     <span class="state <%= state %>"><%= t("views.debts.state.#{state}").downcase %></span>
   </div>
   <div class="grid_5 text <%= state %>">
-    <%= raw t("views.debts.info.#{debt.kind}", :amount => mark_amount(number_to_currency(debt.amount)), :contact => link_to(debt.budget.contact.full_name, debt.budget.contact)) %>
+    <%= raw t("views.debts.info.#{debt.type(current_user)}", :amount => mark_amount(number_to_currency(debt.amount)), :contact => link_to(debt.partner(current_user).full_name, Contact.reverse_proxy(debt.partner(current_user)))) %>
   </div>
-  <div class="grid_1 suffix_3 omega">
-    <%= link_to t("app.links.see_more"), debt %>
+  <div class="grid_2 suffix_2 omega">
+    <%= link_to t("app.links.see_more"), debt, :class => "button main small" %>
   </div>
 </div>
 <%= render 'shared/spacer' %>

@@ -44,6 +44,22 @@ jQuery.fn.hideLabel = function(value) {
   };
 };
 
+jQuery.fn.opposite_selectbox = function(options) {
+  $(this).change(function() {
+    var selected = $(this).val();
+    var opponent = $(options["opponent"]);
+    if (options["excluded"] == selected) {
+      if (opponent.val() == options["excluded"]) {
+        opponent.attr('selected', false);
+        opponent.find('option[value=' + options["alternative"] + ']').attr('selected', 'selected');
+      }
+    } else {
+      opponent.attr('selected', false);
+      opponent.find('option[value=' + options["excluded"] + ']').attr('selected', 'selected');
+    };
+  });
+};
+
 $(document).ready(function() {
   $('[data-class*="input"][data-effect*="overlay"]').fancyInput();
   $('[data-effect*="hintable"]').tooltip();

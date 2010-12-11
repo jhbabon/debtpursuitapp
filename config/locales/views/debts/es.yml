@@ -19,6 +19,10 @@ es:
         paid: "Pagada"
         unpaid: "Sin pagar"
       form:
+        labels:
+          debtor: "¿Quién debe dinero?"
+          lender: "¿A quién?"
+          amount: "¿Cuánto?"
         hints:
           kind: "Selecciona Deuda si debes dinero. Préstamo si has dejado dinero a alguien"
           contact: "La persona que te debe o ha dejado dinero"

@@ -10,12 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209184514) do
-
-  create_table "budgets", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20101213152337) do
 
   create_table "contacts", :force => true do |t|
     t.integer  "user_id"
@@ -24,16 +19,25 @@ ActiveRecord::Schema.define(:version => 20101209184514) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "budget_id"
+    t.integer  "friend_id"
   end
 
   create_table "debts", :force => true do |t|
-    t.integer  "budget_id"
-    t.decimal  "amount",     :precision => 8, :scale => 2
-    t.string   "kind",                                     :default => "debt"
-    t.boolean  "paid",                                     :default => false
+    t.decimal  "amount",      :precision => 8, :scale => 2
+    t.boolean  "paid",                                      :default => false
     t.date     "date"
     t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "debtor_id"
+    t.string   "debtor_type"
+    t.integer  "lender_id"
+    t.string   "lender_type"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

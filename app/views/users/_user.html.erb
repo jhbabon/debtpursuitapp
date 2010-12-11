@@ -1,0 +1,12 @@
+<div class="grid_6">
+  <h4><%= user.full_name %></h4>
+  <p><%= mail_to user.email %></p>
+</div>
+<div class="grid_2 suffix_4">
+  <%= form_for(current_user.sent_invitations.new) do |f| %>
+    <%= f.hidden_field :sender_id, :value => current_user.id %>
+    <%= f.hidden_field :receiver_id, :value => user.id %>
+    <%= f.submit t("views.users.search.links.invitation"), :class => "button main" %>
+  <% end %>
+</div>
+<%= render 'shared/spacer' %>

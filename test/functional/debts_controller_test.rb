@@ -4,7 +4,7 @@ class DebtsControllerTest < ActionController::TestCase
   setup do
     @user = Factory.create(:user)
     @contact = Factory.create(:contact, :user => @user)
-    @debt = Factory.create(:debt, :budget => @contact.budget)
+    @debt = Factory.create(:debt, :debtor => @user, :lender => @contact)
     sign_in @user
   end
 
@@ -37,8 +37,7 @@ class DebtsControllerTest < ActionController::TestCase
   end
 
   test "should not create debt" do
-    post :create,
-         :debt => { :amount => "", :budget_id => "" }
+    post :create, :debt => { :amount => "" }
 
     assert_template "new"
   end

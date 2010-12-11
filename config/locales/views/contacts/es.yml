@@ -9,3 +9,12 @@ es:
         header: "Editar este contacto"
       show:
         header: "Últimas deudas"
+      select:
+        header: "Selecciona el tipo de contacto que quieres crear"
+        personal_contact:
+          header: "Contacto personal"
+          text: "Un contacto personal es un contacto que creas para ti y que nadie más puede ver. Sirve para controlar las deudas de alguien que no use la aplicación."
+          link: "Crea tu contacto personal"
+        invitation:
+          header: "Invita a otro usuario a ser tu contacto"
+          text: "Puedes invitar a otros usuario de la aplicación a ser tus contactos y así compartir todas vuestras deudas."

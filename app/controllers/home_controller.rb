@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @debts = Debt.owned_by(current_user).uncleared.recent
+    @debts = Debt.owned_by(current_user).unpaid.recent
   end
 
   def license

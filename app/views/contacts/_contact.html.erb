@@ -1,6 +1,6 @@
-<div class="grid_4">
+<div class="grid_4 <%= css %>">
   <h2><%= contact.full_name %></h2>
   <h3><%= mail_to contact.email %></h3>
-  <%= render :partial => 'shared/total_debt', :object => contact.budget.total %>
+  <%# render :partial => 'shared/total_debt', :object => contact.budget.total %>
   <p><%= link_to t("app.links.see_more"), contact, :class => "button main" %></p>
 </div>

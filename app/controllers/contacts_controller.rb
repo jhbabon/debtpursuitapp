@@ -1,12 +1,12 @@
 class ContactsController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:select]
 
   def index
     @contacts = current_user.contacts.order("first_name").paginate(:page => params[:page])
   end
 
   def show
-    @debts = @contact.budget.debts.order("date DESC").paginate(:page => params[:page])
+    @debts = Debt.shared_by(current_user, @contact.proxy).order("date DESC").paginate(:page => params[:page])
   end
 
   def new
@@ -34,6 +34,10 @@ class ContactsController < ApplicationController
         format.html { render(:action => :edit) }
       end
     end
+  end
+
+  def select
+    authorize! :create, Contact
   end
 
   def destroy

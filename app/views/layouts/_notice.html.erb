@@ -1,0 +1,6 @@
+<% if flash[:notice] -%>
+  <div class="grid_6 prefix_3 suffix_3 notice">
+    <%= flash[:notice] %>
+  </div>
+  <%= render 'shared/clear' %>
+<% end -%>

@@ -1,15 +1,26 @@
 DebtPursuit::Application.routes.draw do
+  resources :invitations, :only => [:index, :create, :destroy] do
+    put :accept, :on => :member
+  end
+
+  get "users/search"
+
   resources :debts do
     put :pay, :on => :member
     put :unpay, :on => :member
   end
 
-  resources :contacts
+  resources :contacts do
+    get :select, :on => :collection
+  end
 
-  devise_for :users, :skip => [:sessions] do
+  devise_for :users, :skip => [:sessions], :path_prefix => 'd' do
     get "login" => "devise/sessions#new", :as => :new_user_session
     post "login" => "devise/sessions#create", :as => :user_session
     get "logout" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
+  resources :users, :except => [:index, :new, :edit, :update, :create, :destroy] do
+    get :search, :on => :collection
   end
 
   get "home/index"
