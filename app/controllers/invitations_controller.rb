@@ -1,4 +1,11 @@
 class InvitationsController < ApplicationController
+  rescue_from Exceptions::Invitations::ContactExists do
+    redirect_to(contacts_path, :alert => I18n.t("views.invitations.flash.contact_exists"))
+  end
+  rescue_from Exceptions::Invitations::InvitationExists do
+    redirect_to(contacts_path, :alert => I18n.t("views.invitations.flash.invitation_exists"))
+  end
+
   # GET /invitations
   def index
     @invitations = current_user.received_invitations.order("created_at DESC").paginate(:page => params[:page])

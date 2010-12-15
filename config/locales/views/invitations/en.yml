@@ -14,3 +14,5 @@ en:
       flash:
         sended: "The invitation was successfully sended"
         error: "The invitation couldn't send"
+        contact_exists: "The invitation couldn't send: the contact already exists"
+        invitation_exists: "The invitation couldn't send: there is a pending invitation"

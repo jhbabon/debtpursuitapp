@@ -20,4 +20,38 @@ class InvitationTest < ActiveSupport::TestCase
     assert_equal sender_contacts + 1, sender.contacts.count
     assert_equal receiver_contacts + 1, receiver.contacts.count
   end
+
+  test "should not save if the users are friends" do
+    sender = Factory.create(:user)
+    receiver = Factory.create(:user)
+    invitation = Factory.create(:invitation,
+                                :sender => sender,
+                                :receiver => receiver)
+    invitation.accept
+    invitation.destroy
+
+    invitation = Factory.build(:invitation,
+                               :sender => sender,
+                               :receiver => receiver)
+
+    assert_raise(Exceptions::Invitations::ContactExists) { invitation.save }
+  end
+
+  test "should not save if exists other invitation" do
+    sender = Factory.create(:user)
+    receiver = Factory.create(:user)
+    invitation = Factory.create(:invitation,
+                                :sender => sender,
+                                :receiver => receiver)
+
+    invitation = Factory.build(:invitation,
+                               :sender => sender,
+                               :receiver => receiver)
+    assert_raise(Exceptions::Invitations::InvitationExists) { invitation.save }
+
+    invitation = Factory.build(:invitation,
+                               :sender => receiver,
+                               :receiver => sender)
+    assert_raise(Exceptions::Invitations::InvitationExists) { invitation.save }
+  end
 end

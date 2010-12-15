@@ -31,4 +31,23 @@ class InvitationsControllerTest < ActionController::TestCase
 
     assert_redirected_to invitations_path
   end
+
+  test "should rescue from existence of contact" do
+    @invitation.accept
+    post :create, :invitation => Factory.build(:invitation,
+                                               :sender => @invitation.sender,
+                                               :receiver => @invitation.receiver).attributes
+
+    assert_redirected_to contacts_path
+    assert flash[:alert]
+  end
+
+  test "should rescue from existence of invitation" do
+    post :create, :invitation => Factory.build(:invitation,
+                                               :sender => @invitation.sender,
+                                               :receiver => @invitation.receiver).attributes
+
+    assert_redirected_to contacts_path
+    assert flash[:alert]
+  end
 end

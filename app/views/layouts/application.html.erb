@@ -18,8 +18,8 @@
 
     <div class="layout">
       <div class="container_12">
-        <%= render 'layouts/alert' %>
-        <%= render 'layouts/notice' %>
+        <%= render 'layouts/flash_message', :key => :alert %>
+        <%= render 'layouts/flash_message', :key => :notice %>
         <%= yield :subnavigation %>
         <%= yield %>
       </div>

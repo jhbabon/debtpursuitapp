@@ -14,3 +14,5 @@ es:
       flash:
         sended: "La invitación se ha enviado con éxito"
         error: "No se pudo enviar la invitación"
+        contact_exists: "No se pudo enviar la invitación: el contacto ya existe"
+        invitation_exists: "No se pudo enviar la invitación: ya hay una invitación pendiente"
