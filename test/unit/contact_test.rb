@@ -24,18 +24,26 @@ class ContactTest < ActiveSupport::TestCase
     assert_equal contact, contact.proxy
   end
 
-  test "should find contact if a friend" do
+  test "should find contact of a friend" do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
     friend = Factory.create(:user)
-    contact = Factory.create(:contact, :friend => friend)
+    contact1 = Factory.create(:contact, :user => user1, :friend => friend)
+    contact2 = Factory.create(:contact, :user => user2, :friend => friend)
 
-    assert_equal contact, Contact.reverse_proxy(friend)
+    assert_equal contact1, user1.contacts.reverse_proxy(friend)
+    assert_equal contact2, user2.contacts.reverse_proxy(friend)
   end
 
   test "should return contact when search for the proxy" do
+    user1 = Factory.create(:user)
+    user2 = Factory.create(:user)
     friend = Factory.create(:user)
-    contact = Factory.create(:contact, :friend => friend)
+    contact1 = Factory.create(:contact, :user => user1, :friend => friend)
+    contact2 = Factory.create(:contact, :user => user2, :friend => friend)
 
-    assert_equal contact, Contact.reverse_proxy(contact)
+    assert_equal contact1, user1.contacts.reverse_proxy(contact1)
+    assert_equal contact2, user2.contacts.reverse_proxy(contact2)
   end
 
   test "should get polymorphic id" do

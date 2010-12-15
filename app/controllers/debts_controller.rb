@@ -44,7 +44,7 @@ class DebtsController < ApplicationController
   def update
     respond_to do |format|
       if @debt.update_attributes(params[:debt])
-        @contact = Contact.reverse_proxy(@debt.partner(current_user))
+        @contact = current_user.contacts.reverse_proxy(@debt.partner(current_user))
         format.html { redirect_to(@debt) }
       else
         format.html { render :action => "edit" }
@@ -64,7 +64,7 @@ class DebtsController < ApplicationController
 
   # DELETE /debts/1
   def destroy
-    @contact = Contact.reverse_proxy(@debt.partner(current_user))
+    @contact = current_user.contacts.reverse_proxy(@debt.partner(current_user))
     @debt.destroy
 
     respond_to do |format|
@@ -77,7 +77,7 @@ class DebtsController < ApplicationController
   def pay_debt(value=true)
     respond_to do |format|
       @debt.update_attributes({ :paid => value })
-      @contact = Contact.reverse_proxy(@debt.partner(current_user))
+      @contact = current_user.contacts.reverse_proxy(@debt.partner(current_user))
       format.html { redirect_to(@debt) }
     end
   end

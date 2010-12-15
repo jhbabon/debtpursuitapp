@@ -20,7 +20,7 @@ class Invitation < ActiveRecord::Base
   protected
 
   def is_necessary?
-    if Contact.reverse_proxy(User.find(self.receiver_id))
+    if User.find(self.sender_id).contacts.reverse_proxy(User.find(self.receiver_id))
       raise Exceptions::Invitations::ContactExists
     end
 

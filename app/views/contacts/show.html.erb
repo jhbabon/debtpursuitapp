@@ -12,27 +12,27 @@
   <h1><%= @contact.full_name %> <small>(<%= mail_to @contact.email %>)</small></h1>
 </header>
 <%= render 'shared/clear' %>
-<section class="grid_8 suffix_4">
-  <div class="grid_2 alpha">
-    <h3><%= t "views.contacts.contact.total_loan" %></h3>
-    <p><%= mark_amount(number_to_currency(@debts_all.total_loan(current_user))) %></p>
-  </div>
-  <div class="grid_2">
-    <h3><%= t "views.contacts.contact.total_debt" %></h3>
-    <p><%= mark_amount(number_to_currency(@debts_all.total_debt(current_user))) %></p>
-  </div>
-  <div class="grid_2 omega suffix_2">
-    <h3><%= t "views.contacts.contact.total_sum" %></h3>
-    <p><%= mark_amount(number_to_currency(@debts_all.total_sum(current_user))) %></p>
-  </div>
-</section>
-<%= render 'shared/clear' %>
-
-<header class="grid_12">
-  <h2><%= t "views.contacts.show.header" %></h2>
-</header>
-<%= render 'shared/clear' %>
 <div class="grid_8">
+  <section class="grid_8 alpha omega">
+    <div class="grid_2 alpha">
+      <h3><%= t "views.contacts.contact.total_loan" %></h3>
+      <p><%= mark_amount(number_to_currency(@debts_all.total_loan(current_user))) %></p>
+    </div>
+    <div class="grid_2">
+      <h3><%= t "views.contacts.contact.total_debt" %></h3>
+      <p><%= mark_amount(number_to_currency(@debts_all.total_debt(current_user))) %></p>
+    </div>
+    <div class="grid_2 omega suffix_2">
+      <h3><%= t "views.contacts.contact.total_sum" %></h3>
+      <p><%= mark_amount(number_to_currency(@debts_all.total_sum(current_user))) %></p>
+    </div>
+  </section>
+  <%= render 'shared/clear' %>
+
+  <header class="grid_8 alpha omega">
+    <h2><%= t "views.contacts.show.header" %></h2>
+  </header>
+  <%= render 'shared/clear' %>
   <section>
     <%= render 'debts/table_header' %>
     <%= render @debts %>

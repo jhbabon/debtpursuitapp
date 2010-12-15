@@ -21,7 +21,7 @@ class Contact < ActiveRecord::Base
 
   def self.reverse_proxy(person)
     if person.is_a?(User)
-      Contact.where("friend_id = ?", person.id).first
+      where("friend_id = ?", person.id).first
     elsif person.is_a?(Contact)
       person
     end
@@ -40,7 +40,7 @@ class Contact < ActiveRecord::Base
 
   def keep_shared_debts
     if proxy?
-      mirror = Contact.reverse_proxy(user)
+      mirror = User.find(friend_id).contacts.reverse_proxy(user)
       mirror.update_attributes({ :friend => nil,
                                  :email => user.email,
                                  :first_name => user.first_name,
