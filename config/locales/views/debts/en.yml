@@ -1,6 +1,16 @@
 en:
   views:
     debts:
+      flash:
+        create_contact: "You must create contact before create debt"
+      sidebar:
+        header: "Debts"
+        links:
+          total: "All debts"
+          debts: "Debts (you owe money)"
+          loans: "Loans (someone owes money to you)"
+          paid: "Paid debts"
+          unpaid: "Not paid debts"
       index:
         header: "Debts"
       show:

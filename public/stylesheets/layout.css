@@ -318,11 +318,10 @@ hr.recess {
 .budget,
 .debt_info { min-height: 30px !important; }
  .debt_info .date {
+   text-align: center;
    background-color: #D5D5D5;
-   padding: 8px;
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
+   padding: 2px;
+   font-size: .85em;
  }
  .debt_info .text.paid { color: #4D4D4D; }
  .debt_data .amount.paid,

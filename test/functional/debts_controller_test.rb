@@ -27,6 +27,13 @@ class DebtsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not get new if there isn't contacts" do
+    Contact.delete_all
+    get :new
+
+    assert_redirected_to select_contacts_path
+  end
+
   test "should create debt" do
     post :create,
          :debt => @debt.attributes.reject { |key, value|

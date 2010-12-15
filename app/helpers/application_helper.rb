@@ -34,13 +34,8 @@ module ApplicationHelper
     end
   end
 
-  def boolean_to_string(value)
-    value ? t("boolean.true_value") : t("boolean.false_value")
-  end
-
-  # FIXME: debts don't have - anymore
   def mark_amount(amount)
     css = amount.to_s.include?("-") ? "debt" : "loan"
-    content_tag(:span, amount.gsub(/-/, ''), :class => css)
+    content_tag(:span, amount, :class => css)
   end
 end

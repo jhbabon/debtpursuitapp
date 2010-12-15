@@ -1,17 +1,27 @@
 = Debt Pursuit App
 
+= English
+
+== Introduction
+
+Debt Pursuit is a Ruby on Rails application to manage debts between friends and
+other contacts.
+
+== Features
+
+* Record of the debts between you and your contacts.
+* Automatic balance of all debts.
+* Debts history.
+* Contacts management.
+* Link contacts with other users of the application, to share common debts.
+
+
+= Español
+
 == Introducción
 
-Debt Pursuit es una aplicación web pensada para controlar las deudas que
-contraes con tus amigos u otros contactos.
-
-La idea es que le digas a la aplicación quién debe dinero a quién (tú a alguien
-o viceversa) y la cantidad. La aplicación se encargará de ajustar las cuentas
-entre vosotros para saber como es la deuda final.
-
-Es una aplicación pensada sobre todo para amigos o conocidos que se prestan
-pequeñas cantidades de dinero, o que se ayudan a pagar facturas, como compañeros
-de piso, por ejemplo.
+Debt Pursuit es una aplicación creada con Ruby on Rails pensada para controlar
+las deudas que contraes con tus amigos u otros contactos.
 
 == Principales funcionalidades
 
@@ -20,16 +30,5 @@ de piso, por ejemplo.
   a quién.
 * Historial de todas las deudas.
 * Registro de contactos.
-
-== TODO:
-
 * Asociación de contactos con otros usuarios de la aplicación, para llevar un
   control común de las deudas.
-
-
-== Especificaciones técnicas
-
-* Está desarrollada con Rails v3.0.3.
-* Usa jQuery v1.4.4 y jQuery UI v1.8.6.
-* Usa PostgreSQL.
-* Markup con HTML5.

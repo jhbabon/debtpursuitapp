@@ -11,10 +11,13 @@ class Debt < ActiveRecord::Base
   }
   scope :shared_by, proc { |person1, person2| owned_by(person1).owned_by(person2) }
   scope :recent, limit(5).order("created_at DESC")
-  scope :unpaid, where("paid = ?", false)
+  scope :paid, where(:paid => true)
+  scope :unpaid, where(:paid => false)
+  # scope :total_debt, proc { |person|  }
 
   belongs_to :debtor, :polymorphic => true
   belongs_to :lender, :polymorphic => true
+  has_many :comments, :dependent => :destroy
 
   def amount=(value)
     self[:amount] = value.blank? ? value : value.to_s.gsub(/'|,/,".").to_f
@@ -50,6 +53,19 @@ class Debt < ActiveRecord::Base
     end
     end_src
     class_eval src, __FILE__, __LINE__
+  end
+
+  { "debt" => "owed", "loan" => "lent" }.each do |type, method|
+    src = <<-end_src
+    def self.total_#{type}(person)
+      #{method}_by(person).unpaid.sum(:amount)
+    end
+    end_src
+    class_eval src, __FILE__, __LINE__
+  end
+
+  def self.total_sum(person)
+    self.total_loan(person) - self.total_debt(person)
   end
 
   protected

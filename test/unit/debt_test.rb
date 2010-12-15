@@ -110,4 +110,26 @@ class DebtTest < ActiveSupport::TestCase
     assert_equal debtor.polymorphic_id, debt.debtor_str
     assert_equal lender.polymorphic_id, debt.lender_str
   end
+
+  test "should get all paid and not paid debts" do
+    1.upto(3) { Factory.create(:debt, :paid => true) }
+    1.upto(2) { Factory.create(:debt, :paid => false) }
+
+    assert_equal 3, Debt.paid.count
+    assert_equal 2, Debt.unpaid.count
+  end
+
+  test "should get total debt, loan and sum" do
+    debtor = Factory.create(:user)
+    lender = Factory.create(:user)
+    1.upto(3) { Factory.create(:debt, :debtor => debtor, :lender => lender, :amount => 1) }
+    1.upto(3) { Factory.create(:debt, :debtor => debtor, :lender => lender, :amount => 1, :paid => true) }
+
+    assert_equal 3.0, Debt.total_debt(debtor)
+    assert_equal 0, Debt.total_debt(lender)
+    assert_equal 3.0, Debt.total_loan(lender)
+    assert_equal 0, Debt.total_loan(debtor)
+    assert_equal -3.0, Debt.total_sum(debtor)
+    assert_equal 3.0, Debt.total_sum(lender)
+  end
 end

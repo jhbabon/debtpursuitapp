@@ -2,7 +2,13 @@ class DebtsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @debts = Debt.owned_by(current_user).order("date DESC").paginate(:page => params[:page])
+    @debts_all = Debt.owned_by(current_user).order("date DESC")
+    @debts = @debts_all
+    @debts = @debts.owed_by(current_user) if params[:type] == "debt"
+    @debts = @debts.lent_by(current_user) if params[:type] == "loan"
+    @debts = @debts.paid if params[:status] == "paid"
+    @debts = @debts.unpaid if params[:status] == "unpaid"
+    @debts = @debts.paginate(:page => params[:page])
   end
 
   def show
@@ -11,7 +17,11 @@ class DebtsController < ApplicationController
   # GET /debts/new
   def new
     respond_to do |format|
-      format.html # new.html.erb
+      if current_user.contacts.empty?
+        format.html { redirect_to(select_contacts_path, :alert => I18n.t("views.debts.flash.create_contact")) }
+      else
+        format.html # new.html.erb
+      end
     end
   end
 
@@ -23,7 +33,6 @@ class DebtsController < ApplicationController
   def create
     respond_to do |format|
       if @debt.save
-        @contact = Contact.reverse_proxy(@debt.partner(current_user))
         format.html { redirect_to(@debt) }
       else
         format.html { render :action => "new" }

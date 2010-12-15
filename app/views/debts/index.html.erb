@@ -9,16 +9,21 @@
   <h1><%= t "views.debts.index.header" %></h1>
 </header>
 <%= render 'shared/clear' %>
-<section>
-  <h4 class="grid_2"><%= t "activerecord.attributes.debt.date" %></h4>
-  <h4 class="grid_1"><%= t "activerecord.attributes.debt.state" %></h4>
-  <h4 class="grid_9"><%= t "activerecord.models.debt" %></h4>
-  <%= render 'shared/spacer' %>
-  <div class="grid_12">
+
+<div class="grid_8">
+  <section>
+    <%= render 'debts/table_header' %>
     <%= render @debts %>
+  </section>
+</div>
+
+<aside class="grid_4">
+  <div class="sidebar">
+    <%= render "debts/sidebar", :debts => @debts_all, :action => "index" %>
   </div>
-</section>
+</aside>
 <%= render 'shared/clear' %>
+
 <footer>
   <div class="grid_12">
     <%= will_paginate @debts %>

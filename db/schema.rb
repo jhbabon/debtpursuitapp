@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213152337) do
+ActiveRecord::Schema.define(:version => 20101215163524) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "debt_id"
+    t.integer  "user_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contacts", :force => true do |t|
     t.integer  "user_id"

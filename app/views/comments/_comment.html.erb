@@ -1,0 +1,11 @@
+<div class="grid_5 alpha">
+  <strong><%= comment.user.full_name %></strong> <%= t "views.comments.comment.write" %>:
+</div>
+<div class="grid_3 omega text_right">
+  <%= l comment.created_at, :format => :long %>
+</div>
+<%= render "shared/clear" %>
+<div class="grid_8 alpha omega">
+  <%= simple_format comment.text %>
+</div>
+<%= render "shared/spacer" %>

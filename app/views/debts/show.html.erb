@@ -16,7 +16,6 @@
 <section>
 <div class="grid_12">
   <div class="grid_6 alpha">
-    <%# TODO: links to debtor and lender contacts  %>
     <p><strong><%= t "views.debts.show.debtor" %>:</strong> <%= @debt.debtor.full_name %></p>
     <p><strong><%= t "views.debts.show.lender" %>:</strong> <%= @debt.lender.full_name %></p>
     <p><strong><%= t "views.debts.show.date" %>:</strong> <%= l @debt.date %></p>
@@ -41,4 +40,13 @@
   <p><%= @debt.note %></p>
 </div>
 </section>
+<%= render 'shared/clear' %>
+
+<div class="grid_8 suffix_4">
+  <h2>Comentarios</h2>
+  <%= render @debt.comments %>
+  <div class="grid_8 alpha omega">
+    <%= render 'comments/form', :comment => @debt.comments.new %>
+  </div>
+</div>
 <%= render 'shared/clear' %>

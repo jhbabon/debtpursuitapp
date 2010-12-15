@@ -1,0 +1,28 @@
+<h3><%= t "views.debts.sidebar.header" %></h3>
+<ul>
+  <li>
+    <%= link_to raw("<span class='count'>#{debts.owned_by(current_user).count}</span> #{t("views.debts.sidebar.links.total")}"),
+                    { :action => action },
+                    :class => "counter" %>
+  </li>
+  <li>
+    <%= link_to raw("<span class='count'>#{debts.owed_by(current_user).count}</span> #{t("views.debts.sidebar.links.debts")}"),
+                    { :action => action, :type => 'debt' },
+                    :class => "counter" %>
+  </li>
+  <li>
+    <%= link_to raw("<span class='count'>#{debts.lent_by(current_user).count}</span> #{t("views.debts.sidebar.links.loans")}"),
+                    { :action => action, :type => 'loan' },
+                    :class => "counter" %>
+  </li>
+  <li>
+    <%= link_to raw("<span class='count'>#{debts.owned_by(current_user).paid.count}</span> #{t("views.debts.sidebar.links.paid")}"),
+                    { :action => action, :status => 'paid' },
+                    :class => "counter" %>
+  </li>
+  <li>
+    <%= link_to raw("<span class='count'>#{debts.owned_by(current_user).unpaid.count}</span> #{t("views.debts.sidebar.links.unpaid")}"),
+                    { :action => action, :status => 'unpaid' },
+                    :class => "counter" %>
+  </li>
+</ul>

@@ -6,5 +6,5 @@ es:
         links:
           invitation: "Enviar invitación"
         form:
-          placeholder: "Email, nombre, apellidos..."
+          placeholder: "Nombre, apellidos..."
           submit: "Buscar"

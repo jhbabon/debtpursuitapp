@@ -22,9 +22,10 @@ class User < ActiveRecord::Base
            :foreign_key => "receiver_id",
            :class_name => "Invitation",
            :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   scope :search, proc { |q|
-    where("email LIKE :q OR first_name LIKE :q OR last_name LIKE :q OR first_name||' '||last_name LIKE :q", { :q => "%#{q}%" })
+    where("first_name LIKE :q OR last_name LIKE :q OR first_name||' '||last_name LIKE :q", { :q => "%#{q}%" })
   }
 
   def update_with_password(params={})

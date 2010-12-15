@@ -1,6 +1,18 @@
 en:
   views:
     contacts:
+      contact:
+        linked: "Contact linked to an existing user"
+        unlinked: "Personal contact"
+        total_debt: "Total debt"
+        total_loan: "Total loan"
+        total_sum: "Total sum"
+      sidebar:
+        header: "Contacts"
+        links:
+          linked: "Contacts linked to an existing user"
+          unlinked: "Personal contacts"
+          total: "Contacts"
       index:
         header: "Contacts"
       new:
@@ -8,7 +20,7 @@ en:
       edit:
         header: "Edit this contact"
       show:
-        header: "Latests debts"
+        header: "Debts"
       select:
         header: "Select the type of contact do you want to create"
         personal_contact:

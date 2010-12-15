@@ -24,7 +24,7 @@ class ContactTest < ActiveSupport::TestCase
     assert_equal contact, contact.proxy
   end
 
-  test "should find contact if have the user who is friend" do
+  test "should find contact if a friend" do
     friend = Factory.create(:user)
     contact = Factory.create(:contact, :friend => friend)
 
@@ -78,5 +78,21 @@ class ContactTest < ActiveSupport::TestCase
 
     contact = Factory.create(:contact, :friend => nil)
     assert !contact.proxy?
+  end
+
+  test "should get all contacts linked to a user" do
+    Factory.create(:contact, :friend => Factory.create(:user))
+    Factory.create(:contact, :friend => Factory.create(:user))
+    Factory.create(:contact, :friend => nil)
+
+    assert_equal 2, Contact.linked.count
+  end
+
+  test "should get all contacts not linked to a user" do
+    Factory.create(:contact, :friend => Factory.create(:user))
+    Factory.create(:contact, :friend => Factory.create(:user))
+    Factory.create(:contact, :friend => nil)
+
+    assert_equal 1, Contact.unlinked.count
   end
 end

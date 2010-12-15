@@ -4,6 +4,8 @@ class Invitation < ActiveRecord::Base
   belongs_to :sender, :class_name => 'User'
   belongs_to :receiver, :class_name => 'User'
 
+  scope :recent, limit(5).order("created_at DESC")
+
   # return: the sender contact
   def accept
     # contact for the sender

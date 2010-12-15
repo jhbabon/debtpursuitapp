@@ -14,7 +14,7 @@ class ContactsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:contacts)
   end
 
-  test "should ge contact" do
+  test "should get contact" do
     get :show, :id => @contact.to_param
 
     assert_response :success

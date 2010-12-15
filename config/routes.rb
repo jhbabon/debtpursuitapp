@@ -10,6 +10,8 @@ DebtPursuit::Application.routes.draw do
     put :unpay, :on => :member
   end
 
+  resources :comments, :only => [:create]
+
   resources :contacts do
     get :select, :on => :collection
   end
@@ -25,11 +27,9 @@ DebtPursuit::Application.routes.draw do
 
   get "home/index"
   get "home/license"
-  get "home/about"
 
   match "/home" => "home#index", :as => :home
   match "/license" => "home#license", :as => :license
-  match "/about" => "home#about", :as => :about
   root :to => "home#index"
 
   # The priority is based upon order of creation:

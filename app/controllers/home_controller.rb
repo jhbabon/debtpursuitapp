@@ -1,22 +1,8 @@
 class HomeController < ApplicationController
   def index
     @debts = Debt.owned_by(current_user).unpaid.recent
+    @invitations = current_user.received_invitations.recent
   end
 
-  def license
-    draft
-  end
-
-  def about
-    draft
-  end
-
-  protected
-
-  def draft
-    respond_to do |format|
-      format.html { render :template => "home/draft" }
-    end
-  end
-
+  def license; end
 end

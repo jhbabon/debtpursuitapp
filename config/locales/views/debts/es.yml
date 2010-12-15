@@ -1,6 +1,16 @@
 es:
   views:
     debts:
+      flash:
+        create_contact: "Debes crear un contacto antes de crear una deuda"
+      sidebar:
+        header: "Deudas"
+        links:
+          total: "Deudas en total"
+          debts: "Deudas (debes dinero)"
+          loans: "Préstamos (te deben dinero)"
+          paid: "Deudas pagadas"
+          unpaid: "Deudas sin pagar"
       index:
         header: "Deudas"
       show:

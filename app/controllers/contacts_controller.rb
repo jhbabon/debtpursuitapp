@@ -2,11 +2,20 @@ class ContactsController < ApplicationController
   load_and_authorize_resource :except => [:select]
 
   def index
-    @contacts = current_user.contacts.order("first_name").paginate(:page => params[:page])
+    @contacts = current_user.contacts.order("first_name")
+    @contacts = @contacts.linked if params[:status] == "linked"
+    @contacts = @contacts.unlinked if params[:status] == "unlinked"
+    @contacts = @contacts.paginate(:page => params[:page])
   end
 
   def show
-    @debts = Debt.shared_by(current_user, @contact.proxy).order("date DESC").paginate(:page => params[:page])
+    @debts_all = Debt.shared_by(current_user, @contact.proxy).order("date DESC")
+    @debts = @debts_all
+    @debts = @debts.owed_by(current_user) if params[:type] == "debt"
+    @debts = @debts.lent_by(current_user) if params[:type] == "loan"
+    @debts = @debts.paid if params[:status] == "paid"
+    @debts = @debts.unpaid if params[:status] == "unpaid"
+    @debts = @debts.paginate(:page => params[:page])
   end
 
   def new

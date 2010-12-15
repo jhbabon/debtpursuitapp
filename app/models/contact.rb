@@ -8,6 +8,9 @@ class Contact < ActiveRecord::Base
   belongs_to :user
   belongs_to :friend, :foreign_key => "friend_id", :class_name => 'User'
 
+  scope :linked, where("friend_id IS NOT ?", nil)
+  scope :unlinked, where(:friend_id => nil)
+
   def proxy
     proxy? ? friend : self
   end

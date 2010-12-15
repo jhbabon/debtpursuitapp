@@ -5,25 +5,33 @@
   <%= render 'shared/clear' %>
 <% end -%>
 
+<header class="grid_12">
+  <h1><%= t "views.contacts.index.header" %></h1>
+</header>
+<%= render "shared/clear" %>
+
 <div class="grid_8">
-  <header class="grid_8 alpha omega">
-    <h1><%= t "views.contacts.index.header" %></h1>
-  </header>
-  <%= render "shared/clear" %>
   <section>
-    <% @contacts.each_slice(2) do |cols| -%>
-      <%= render(cols.first, :css => "alpha") %>
-      <%= render(cols.last, :css => "omega") if cols.count == 2 %>
-      <%= render "shared/spacer" %>
+    <% if @contacts.blank? -%>
+      &nbsp;
+    <% else -%>
+      <% @contacts.each_slice(2) do |cols| -%>
+        <%= render(cols.first, :css => "alpha") %>
+        <%= render(cols.last, :css => "omega") if cols.count == 2 %>
+        <%= render "shared/spacer" %>
+      <% end -%>
     <% end -%>
   </section>
 </div>
+
 <aside class="grid_4">
 <div class="sidebar">
+  <%= render "contacts/sidebar" %>
   <%= render "invitations/sidebar" %>
 </div>
 </aside>
 <%= render 'shared/clear' %>
+
 <footer>
   <div class="grid_12">
     <%= will_paginate @contacts %>
