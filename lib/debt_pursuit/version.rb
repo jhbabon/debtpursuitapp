@@ -1,10 +1,10 @@
 module DebtPursuit
   module Version
-    MAYOR = "1"
+    MAJOR = "1"
     MINOR = "0"
-    PATCH = "1"
+    PATCH = "2"
 
-    NUMBER = [MAYOR, MINOR, PATCH].join(".")
+    NUMBER = [MAJOR, MINOR, PATCH].join(".")
 
     CODE_NAME = "Interceptor"
   end
