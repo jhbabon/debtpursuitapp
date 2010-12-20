@@ -1,0 +1,19 @@
+es:
+  mailers:
+    debt_mailer:
+      subject:
+        created: "Una deuda ha sido creada"
+        updated: "Una deuda ha sido actualizada"
+        deleted: "Una deuda ha sido eliminada"
+        paid: "Una deuda ha sido marcada como pagada"
+        unpaid: "Una deuda ha sido marcada como no pagada"
+      body:
+        hello: "¡Hola %{name}!"
+        action:
+          created: "El contacto %{contact} ha creado la siguiente deuda"
+          updated: "El contacto %{contact} ha actualizado la siguiente deuda"
+          deleted: "El contacto %{contact} ha eliminado la siguiente deuda"
+          paid: "El contacto %{contact} ha marcado como pagada la siguiente deuda"
+          unpaid: "El contacto %{contact} ha marcado como no pagada la siguiente deuda"
+        url: "Puedes ver la deuda aquí: %{url}"
+        bye: "Un saludo"

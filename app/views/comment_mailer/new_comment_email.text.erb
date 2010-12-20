@@ -1,0 +1,12 @@
+<%= t "mailers.comment_mailer.body.hello", :name => @user.first_name %>
+
+<%= t "mailers.comment_mailer.body.action", :contact => @contact.full_name %>:
+
+<%= t "views.debts.info.#{@comment.debt.type(@user)}", :amount => number_to_currency(@comment.debt.amount), :contact => @contact.full_name %>
+<%= t("mailers.comment_mailer.body.url", :url => @url) unless @url.nil? %>
+
+<%= t "mailers.comment_mailer.body.comment" %>:
+==============================================
+<%= @comment.text %>
+
+<%= t "mailers.comment_mailer.body.bye" %>

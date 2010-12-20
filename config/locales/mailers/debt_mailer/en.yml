@@ -1,0 +1,19 @@
+en:
+  mailers:
+    debt_mailer:
+      subject:
+        created: "A debt was created"
+        updated: "A debt was updated"
+        deleted: "A debt was deleted"
+        paid: "A debt was marked as paid"
+        unpaid: "A debt was marked as not paid"
+      body:
+        hello: "Hello %{name}!"
+        action:
+          created: "The contact %{contact} has created the following debt"
+          updated: "The contact %{contact} has updated the following debt"
+          deleted: "The contact %{contact} has deleted the following debt"
+          paid: "The contact %{contact} has marked as paid the following debt"
+          unpaid: "The contact %{contact} has marked as not paid the following debt"
+        url: "You can see the debt here: %{url}"
+        bye: "Goodbye"

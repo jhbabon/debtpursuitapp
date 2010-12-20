@@ -49,5 +49,5 @@ DebtPursuit::Application.configure do
 
   # Devise
   # TODO: change host with the app domain name
-  config.action_mailer.default_url_options = { :host => 'debtpursuitapp.heroku.com' }
+  # config.action_mailer.default_url_options = { :host => 'debtpursuitapp.heroku.com' }
 end

@@ -1,0 +1,10 @@
+<%= t "mailers.debt_mailer.body.hello", :name => @user.first_name %>
+
+<%= t "mailers.debt_mailer.body.action.#{@action}", :contact => @contact.full_name %>:
+
+<%= t "views.debts.info.#{@debt.type(@user)}", :amount => number_to_currency(@debt.amount), :contact => @contact.full_name %>
+<%= @debt.note %>
+
+<%= t("mailers.debt_mailer.body.url", :url => @url) unless @url.nil? %>
+
+<%= t "mailers.debt_mailer.body.bye" %>
