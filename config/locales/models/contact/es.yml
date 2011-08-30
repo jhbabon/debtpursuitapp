@@ -1,9 +1,0 @@
-es:
-  activerecord:
-    models:
-      contact: "Contacto"
-    attributes:
-      contact:
-        email: "Email"
-        first_name: "Nombre"
-        last_name: "Apellidos"

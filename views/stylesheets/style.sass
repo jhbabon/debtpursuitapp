@@ -1,0 +1,26 @@
+@import initializer
+@import helpers
+@import grid
+@import normalize
+
+/* Base styles
+  --------------------------------------------------------------------------*/
+body
+  +container
+
+/* test contents */
+#header
+  +grid( 3 )
+
+.content1 > .column
+  +grid( 1 )
+.content2 > .column
+  +grid( 1 )
+.content2 > .column2
+  +grid( 2 )
+.content3 > .column
+  +grid( 2 )
+  +content_pad( 'left' )
+
+@import mobile
+@import media_print

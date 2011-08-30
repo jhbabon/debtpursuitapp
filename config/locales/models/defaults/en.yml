@@ -1,7 +1,0 @@
-en:
-  activerecord:
-    errors:
-      template:
-        header:
-          one:   "1 error prohibited this form from being saved"
-          other:  "%{count} errors prohibited this form from being saved"

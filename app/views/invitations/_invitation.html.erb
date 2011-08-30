@@ -1,8 +1,0 @@
-<div class="grid_6 alpha">
-  <%= raw t("views.invitations.invitation.text", :name => content_tag(:strong, invitation.sender.full_name)) %>
-</div>
-<div class="grid_2 omega">
-  <%= button_to t("views.invitations.invitation.links.accept"), { :controller => "invitations", :action => "accept", :id => invitation.to_param }, :method => :put %>
-  <%= link_to t("views.invitations.invitation.links.reject"), invitation, :confirm => t("app.actions.confirmation"), :method => :delete, :class => "button small" %>
-</div>
-<%= render 'shared/spacer' %>

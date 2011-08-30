@@ -1,5 +1,0 @@
-en:
-  activerecord:
-    attributes:
-      user:
-        locale: "Language"

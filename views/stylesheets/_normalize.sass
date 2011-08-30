@@ -1,0 +1,243 @@
+/* Reset and normalization
+  --------------------------------------------------------------------------*/
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section
+  display: block
+
+audio, canvas, video
+  display: inline-block
+  *display: inline
+  *zoom: 1
+
+audio:not([controls]), [hidden]
+  display: none
+
+html
+  font-size: 100%
+  overflow-y: scroll
+
+  // puts to none to stop iphone scalling type up
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+body
+  margin: 0
+  font-family: $base_font_family
+  font-size: $base_font_size
+  line-height: $base_line_height
+  color: $base_fg_color
+
+button, input, select, textarea
+  font-family: $base_font_family
+  color: $base_fg_color
+
+\::-moz-selection, ::selection
+  background: $selection_bg_color
+  color: $selection_fg_color
+  text-shadow: none
+
+a
+  color: $link_base_color
+  border-bottom: 1px solid $link_base_color
+  text-decoration: none
+  padding: 0 3px
+  &:visited
+    color: $link_visited_color
+    border-bottom-color: $link_visited_color
+  &:hover
+    color: $link_hover_fg_color
+    background-color: $link_hover_bg_color
+    border-bottom: none
+    padding-bottom: 1px
+  &:focus
+    outline: thin dotted
+  &:hover, &:active
+    outline: 0
+  img
+    display: block
+
+
+abbr[title]
+  border-bottom: 1px dotted
+
+b, strong
+  font-weight: bold
+
+blockquote
+  margin: 1em 40px
+
+dfn
+  font-style: italic
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+ins
+  background: #ff9
+  color: #000
+  text-decoration: none
+
+mark
+  background: #ff0
+  color: #000
+  font-style: italic
+  font-weight: bold
+
+
+pre, code, kbd, samp
+  font-family: monospace, serif
+  _font-family: 'courier new', monospace
+  font-size: 1em
+
+
+pre
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+
+q
+  quotes: none
+  &:before, &:after
+    content: ""
+    content: none
+
+small
+  font-size: 85%
+
+
+sub
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+
+sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+  top: -0.5em
+
+sub
+  bottom: -0.25em
+
+
+ul, ol
+  margin: 1em 0
+  padding: 0 0 0 40px
+
+dd
+  margin: 0 0 0 40px
+
+nav
+  ul, ol
+    list-style: none
+    list-style-image: none
+    margin: 0
+    padding: 0
+
+
+img
+  border: 0
+  -ms-interpolation-mode: bicubic
+  vertical-align: middle
+
+svg:not(:root)
+  overflow: hidden
+
+figure, form
+  margin: 0
+
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
+label
+  cursor: pointer
+
+legend
+  border: 0
+  *margin-left: -7px
+  padding: 0
+
+button, input, select, textarea
+  font-size: 100%
+  margin: 0
+  vertical-align: baseline
+  *vertical-align: middle
+
+button, input
+  line-height: normal
+  *overflow: visible
+
+table
+  button, input
+    *overflow: auto
+
+button
+  cursor: pointer
+  -webkit-appearance: button
+
+input
+  &[type="button"], &[type="reset"], &[type="submit"]
+    cursor: pointer
+    -webkit-appearance: button
+  &[type="checkbox"], &[type="radio"]
+    box-sizing: border-box
+    padding: 0
+  &[type="search"]
+    -webkit-appearance: textfield
+    -moz-box-sizing: content-box
+    -webkit-box-sizing: content-box
+    box-sizing: content-box
+    &::-webkit-search-decoration
+      -webkit-appearance: none
+
+button::-moz-focus-inner, input::-moz-focus-inner
+  border: 0
+  padding: 0
+
+textarea
+  overflow: auto
+  vertical-align: top
+  resize: vertical
+
+input:valid, textarea:valid
+
+input:invalid, textarea:invalid
+  background-color: $input_invalid_bg_color
+
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+td
+  vertical-align: top
+
+p, ul, ol
+  margin-bottom: $base_line_height
+
+img, object, embed, audio, video
+  max-width: 100%
+  margin-bottom: $base_line_height
+
+headings
+=heading_presets
+  font-family: $heading_font_family
+  font-weight: $heading_font_weight
+  margin-bottom: $base_line_height
+
+h1
+  font-size: $h1_font_size
+  line-height: $h1_line_height
+  +heading_presets
+
+h2
+  font-size: $h2_font_size
+  +heading_presets

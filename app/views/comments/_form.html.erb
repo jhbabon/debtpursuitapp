@@ -1,9 +1,0 @@
-<%= form_for(comment,
-             :builder => FancyFormBuilder,
-             :html    => { :class => %(form) }) do |f| %>
-  <%= f.form_error %>
-  <%= f.hidden_field :debt_id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.text_area :text, :label => t("views.comments.form.labels.text") %>
-  <%= f.submit t("app.form.submit") %>
-<% end -%>

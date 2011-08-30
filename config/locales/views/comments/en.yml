@@ -1,8 +1,0 @@
-en:
-  views:
-    comments:
-      comment:
-        write: "wrote"
-      form:
-        labels:
-          text: "Write a comment"

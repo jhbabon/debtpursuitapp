@@ -1,0 +1,43 @@
+// Flody960 Grid system
+  ---------------------------------------------------------------------------/
+
+$grid_margin:     1%
+$grid_pad:        4%
+$grid_max_width:  960px
+
+=container
+  width:      92%
+  max-width:  $grid_max_width
+  margin:     0 auto
+  position:   relative
+
+=grid( $width: 1, $float: left )
+  float:         $float
+  position:      relative
+  margin-left:   $grid_margin
+  margin-right:  $grid_margin
+  width:         grid_width( $width )
+  @media only screen and (max-width: 640px)
+    +grid_mb
+
+=content_pad( $side: 'right', $times: 1 )
+  margin-#{ $side }: $grid_pad * $times
+  @media only screen and (max-width: 640px)
+    +content_pad_mb
+
+// for media queries max-width: 640px
+=container_mb
+  width: 92%
+  margin: 0 auto
+
+=grid_mb
+  float: none
+  width: 100%
+  margin: 0 0 2.5em
+
+=content_pad_mb
+  margin-left: 0
+  margin-right: 0
+
+@function grid_width( $width )
+  @return ( ( $width/3 ) * 100% ) - ( $grid_margin * 2 )

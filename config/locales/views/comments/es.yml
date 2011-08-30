@@ -1,8 +1,0 @@
-es:
-  views:
-    comments:
-      comment:
-        write: "escribió"
-      form:
-        labels:
-          text: "Escribe un comentario"
