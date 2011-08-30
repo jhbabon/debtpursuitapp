@@ -50,3 +50,10 @@
     display: table
     clear: both
   *zoom: 1
+
+=font_face( $font_name )
+  $font: $font_path + '/' + $font_name
+  @font-face
+    font-family: $font
+    src: url( $font + '.eot' )
+    src: url( $font + '.woff' ) format('woff'), url( $font + '.otf' ) format('opentype'), url( $font + '.ttf' ) format('truetype')

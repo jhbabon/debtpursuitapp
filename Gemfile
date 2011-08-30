@@ -3,3 +3,5 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
+
+gem 'rack-test'

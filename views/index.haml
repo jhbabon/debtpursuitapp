@@ -1,32 +1,25 @@
-%header#header
-  %h1 DebtPursuit v2
+%section#expense
+  %p.name
+    %input{ :name                => 'owner',
+            :type                => 'text',
+            :value               => 'Name',
+            :'data-expense-attribute' => true, }
+  %p.money
+    %input{ :name                 => 'amount',
+            :type                 => 'text',
+            :value                => 'Money',
+            :'data-expense-attribute' => true, }
 
-%section.content1
-  %p.column
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
-  %p.column
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
-  %p.column
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
+  %p.add_button
+    %a{ :href               => '#',
+        :'data-expense-add' => true,
+        :'data-target-id'     => 'people'  } Add
 
-%section.content2
-  %p.column
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
-  %p.column2
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
+%form{ :action => '/magic', :method => 'post' }
+  %section#people
+  %input{:type => 'submit', :value => 'GO!'}
 
-%section.content3
-  %p.column
-    Make the money flow
-    %br
-    %a{ :href => '#' } Un enlace, copón
+%section#show
+  - if defined?( data ) && !data.nil?
+    - data.each do |debt|
+      %p= "#{debt[:debtor]} owes #{debt[:quantity].to_s( 'F' )} to #{debt[:lender]}"

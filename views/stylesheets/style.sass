@@ -1,26 +1,45 @@
-@import initializer
+@import base
 @import helpers
 @import grid
 @import normalize
 
 /* Base styles
   --------------------------------------------------------------------------*/
++font_face( $logo-font )
+
 body
   +container
 
-/* test contents */
 #header
-  +grid( 3 )
+  margin-top: $base_line_height
+  +clearfix
 
-.content1 > .column
+  & > .logo
+    +grid( 2 )
+
+    & > h1
+      font-family: $logo-font
+      & > a
+        // TODO: link-colors helper
+        color: $logo-color
+        text-decoration: none
+        border: none
+        background-color: transparent
+        .light
+          color: $logo-light-color
+
+  & > .links
+    +grid( 1 )
+    margin-top: $base_line_height * 2
+    font-size: $base_font_size * 1.2
+    & > ul > li
+      display: inline
+      padding: 0 7px
+
+.name, .money, .add_button
   +grid( 1 )
-.content2 > .column
-  +grid( 1 )
-.content2 > .column2
-  +grid( 2 )
-.content3 > .column
-  +grid( 2 )
-  +content_pad( 'left' )
+form, #show
+  +grid( 3 )
 
 @import mobile
 @import media_print
